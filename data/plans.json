@@ -1,0 +1,1595 @@
+[
+  {
+    "id": "plan-001",
+    "title": "Modern 3 Bedroom House Plan for 20x20m / 66x66 ft Plot",
+    "slug": "modern-3-bedroom-house-plan-20x20m-plot",
+    "reference": "MFHP-001/2026",
+    "shortDescription": "A bright family home with open living, shaded terrace and practical zoning for warm climates.",
+    "description": "This modern 3 bedroom house plan is designed for families who want a polished home that remains realistic to build. The layout balances privacy, natural ventilation, easy circulation and a generous living area connected to the terrace.",
+    "category": "Modern House Plans",
+    "totalArea": 168,
+    "builtArea": 142,
+    "plotWidth": 20,
+    "plotLength": 20,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Flat roof",
+    "architecturalStyle": "Modern tropical",
+    "foundationType": "Reinforced concrete strip foundation",
+    "structureType": "Concrete frame and block walls",
+    "mainImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 9.99,
+    "cadPrice": 39.99,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "Hot Climate Friendly",
+      "Future Extension Ready"
+    ],
+    "scores": {
+      "functionality": 92,
+      "comfort": 90,
+      "constructionSimplicity": 84,
+      "costEfficiency": 82,
+      "hotClimateAdaptation": 94,
+      "futureExtension": 86,
+      "naturalVentilation": 90,
+      "familySuitability": 88
+    },
+    "bestFor": [
+      "Medium family",
+      "Hot climate",
+      "20x20m / 66x66 ft plot",
+      "Moderate construction budget"
+    ],
+    "beCareful": [
+      "Not ideal for very narrow plots",
+      "Future extension may require structural review"
+    ],
+    "status": "Published",
+    "views": 12840,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "Hot Climate Friendly",
+      "Future Extension Ready"
+    ],
+    "livingArea": 121,
+    "minPlotWidth": 20,
+    "minPlotLength": 20,
+    "minimumPlotWidth": 20,
+    "minimumPlotLength": 20,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Dry climate"
+    ],
+    "specialFeatures": [
+      "Hot Climate Friendly",
+      "Future Extension Ready"
+    ],
+    "features": [
+      "Hot Climate Friendly",
+      "Future Extension Ready"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Modern 3 Bedroom House Plan for 20x20m / 66x66 ft Plot exterior preview",
+    "galleryImageAlt": "Modern 3 Bedroom House Plan for 20x20m / 66x66 ft Plot gallery image",
+    "oldPremiumPrice": 14.99,
+    "oldCadPrice": 49.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/modern-3-bedroom-house-plan-20x20m-plot-premium-pack.zip",
+    "dwgFileUrl": "/uploads/modern-3-bedroom-house-plan-20x20m-plot.dwg",
+    "revitFileUrl": "/uploads/modern-3-bedroom-house-plan-20x20m-plot.rvt",
+    "ifcFileUrl": "",
+    "cadZipUrl": "/uploads/modern-3-bedroom-house-plan-20x20m-plot-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Not ideal for very narrow plots",
+      "Future extension may require structural review"
+    ],
+    "recommendedUsers": [
+      "Medium family",
+      "Hot climate",
+      "20x20m / 66x66 ft plot",
+      "Moderate construction budget"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Modern 3 Bedroom House Plan for 20x20m / 66x66 ft Plot | PDF DWG Revit House Plan",
+    "seoDescription": "A bright family home with open living, shaded terrace and practical zoning for warm climates.",
+    "metaDescription": "A bright family home with open living, shaded terrace and practical zoning for warm climates.",
+    "seoKeywords": [
+      "Modern House Plans",
+      "3 bedroom house plan",
+      "20x20m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/modern-3-bedroom-house-plan-20x20m-plot",
+    "focusKeyword": "modern 3 bedroom house plan for 20x20m / 66x66 ft plot",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 74,
+    "readinessScore": 78,
+    "downloads": 420,
+    "premiumClicks": 70,
+    "cadClicks": 35,
+    "updatedDate": "May 20, 2026",
+    "createdAt": "2026-05-10",
+    "updatedAt": "2026-05-20",
+    "publishedAt": "2026-05-20",
+    "featured": true,
+    "popular": true,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 1,
+    "categoryRank": 1,
+    "homepageRank": 1,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 88,
+    "priorityScore": 85
+  },
+  {
+    "id": "plan-002",
+    "title": "Small 2 Bedroom House Plan with Terrace",
+    "slug": "small-2-bedroom-house-plan-with-terrace",
+    "reference": "MFHP-002/2026",
+    "shortDescription": "A compact home with a welcoming terrace, efficient rooms and simple construction logic.",
+    "description": "Designed for first homes, guest houses and small families, this plan keeps construction controlled without feeling cramped. The terrace extends the living space and improves shade.",
+    "category": "Small House Plans",
+    "totalArea": 86,
+    "builtArea": 74,
+    "plotWidth": 12,
+    "plotLength": 18,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Hip roof",
+    "architecturalStyle": "Contemporary compact",
+    "foundationType": "Strip foundation",
+    "structureType": "Block wall construction",
+    "mainImage": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": false,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 7.99,
+    "cadPrice": 0,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "Low Cost",
+      "With Terrace"
+    ],
+    "scores": {
+      "functionality": 86,
+      "comfort": 80,
+      "constructionSimplicity": 93,
+      "costEfficiency": 95,
+      "hotClimateAdaptation": 84,
+      "futureExtension": 72,
+      "naturalVentilation": 80,
+      "familySuitability": 78
+    },
+    "bestFor": [
+      "Small family",
+      "Starter home",
+      "Low cost construction",
+      "Rental compound"
+    ],
+    "beCareful": [
+      "Limited storage",
+      "Future floor addition needs engineer review"
+    ],
+    "status": "Published",
+    "views": 9340,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "Low Cost",
+      "With Terrace"
+    ],
+    "livingArea": 62,
+    "minPlotWidth": 12,
+    "minPlotLength": 18,
+    "minimumPlotWidth": 12,
+    "minimumPlotLength": 18,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Humid climate"
+    ],
+    "specialFeatures": [
+      "Low Cost",
+      "With Terrace"
+    ],
+    "features": [
+      "Low Cost",
+      "With Terrace"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Small 2 Bedroom House Plan with Terrace exterior preview",
+    "galleryImageAlt": "Small 2 Bedroom House Plan with Terrace gallery image",
+    "oldPremiumPrice": 12.99,
+    "oldCadPrice": 0,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/small-2-bedroom-house-plan-with-terrace-premium-pack.zip",
+    "dwgFileUrl": "",
+    "revitFileUrl": "",
+    "ifcFileUrl": "",
+    "cadZipUrl": "",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Limited storage",
+      "Future floor addition needs engineer review"
+    ],
+    "recommendedUsers": [
+      "Small family",
+      "Starter home",
+      "Low cost construction",
+      "Rental compound"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Small 2 Bedroom House Plan with Terrace | PDF DWG Revit House Plan",
+    "seoDescription": "A compact home with a welcoming terrace, efficient rooms and simple construction logic.",
+    "metaDescription": "A compact home with a welcoming terrace, efficient rooms and simple construction logic.",
+    "seoKeywords": [
+      "Small House Plans",
+      "2 bedroom house plan",
+      "12x18m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/small-2-bedroom-house-plan-with-terrace",
+    "focusKeyword": "small 2 bedroom house plan with terrace",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 77,
+    "readinessScore": 80,
+    "downloads": 600,
+    "premiumClicks": 98,
+    "cadClicks": 0,
+    "updatedDate": "May 21, 2026",
+    "createdAt": "2026-05-11",
+    "updatedAt": "2026-05-21",
+    "publishedAt": "2026-05-21",
+    "featured": true,
+    "popular": true,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 2,
+    "categoryRank": 2,
+    "homepageRank": 2,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 84,
+    "priorityScore": 76
+  },
+  {
+    "id": "plan-003",
+    "title": "Low Cost Family House Plan",
+    "slug": "low-cost-family-house-plan",
+    "reference": "MFHP-003/2026",
+    "shortDescription": "A cost-aware family plan with regular spans, simple roof geometry and flexible rooms.",
+    "description": "This plan focuses on buildability and budget control. It uses practical room sizes, fewer structural complications and a clean rectangular footprint.",
+    "category": "Low Cost House Plans",
+    "totalArea": 118,
+    "builtArea": 104,
+    "plotWidth": 15,
+    "plotLength": 20,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Gable roof",
+    "architecturalStyle": "Simple contemporary",
+    "foundationType": "Strip foundation",
+    "structureType": "Load-bearing block walls",
+    "mainImage": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 8.99,
+    "cadPrice": 29.99,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Low Cost"
+    ],
+    "scores": {
+      "functionality": 84,
+      "comfort": 78,
+      "constructionSimplicity": 96,
+      "costEfficiency": 96,
+      "hotClimateAdaptation": 80,
+      "futureExtension": 78,
+      "naturalVentilation": 76,
+      "familySuitability": 76
+    },
+    "bestFor": [
+      "Budget builders",
+      "Phased construction",
+      "Simple local construction teams"
+    ],
+    "beCareful": [
+      "Facade can be upgraded later",
+      "Room sizes are efficient, not oversized"
+    ],
+    "status": "Published",
+    "views": 15620,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Low Cost"
+    ],
+    "livingArea": 85,
+    "minPlotWidth": 15,
+    "minPlotLength": 20,
+    "minimumPlotWidth": 15,
+    "minimumPlotLength": 20,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Humid climate"
+    ],
+    "specialFeatures": [
+      "Low Cost"
+    ],
+    "features": [
+      "Low Cost"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Low Cost Family House Plan exterior preview",
+    "galleryImageAlt": "Low Cost Family House Plan gallery image",
+    "oldPremiumPrice": 13.99,
+    "oldCadPrice": 39.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/low-cost-family-house-plan-premium-pack.zip",
+    "dwgFileUrl": "/uploads/low-cost-family-house-plan.dwg",
+    "revitFileUrl": "",
+    "ifcFileUrl": "",
+    "cadZipUrl": "/uploads/low-cost-family-house-plan-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Facade can be upgraded later",
+      "Room sizes are efficient, not oversized"
+    ],
+    "recommendedUsers": [
+      "Budget builders",
+      "Phased construction",
+      "Simple local construction teams"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Low Cost Family House Plan | PDF DWG Revit House Plan",
+    "seoDescription": "A cost-aware family plan with regular spans, simple roof geometry and flexible rooms.",
+    "metaDescription": "A cost-aware family plan with regular spans, simple roof geometry and flexible rooms.",
+    "seoKeywords": [
+      "Low Cost House Plans",
+      "3 bedroom house plan",
+      "15x20m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/low-cost-family-house-plan",
+    "focusKeyword": "low cost family house plan",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 80,
+    "readinessScore": 82,
+    "downloads": 780,
+    "premiumClicks": 126,
+    "cadClicks": 73,
+    "updatedDate": "May 22, 2026",
+    "createdAt": "2026-05-12",
+    "updatedAt": "2026-05-22",
+    "publishedAt": "2026-05-22",
+    "featured": true,
+    "popular": true,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 3,
+    "categoryRank": 3,
+    "homepageRank": 3,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 83,
+    "priorityScore": 88
+  },
+  {
+    "id": "plan-004",
+    "title": "Modern 4 Bedroom House Plan with Courtyard",
+    "slug": "modern-4-bedroom-house-plan-with-courtyard",
+    "reference": "MFHP-004/2026",
+    "shortDescription": "A refined family villa organized around a private courtyard for light and airflow.",
+    "description": "A premium layout for families that want privacy, daylight and an elegant arrival experience. The courtyard improves cross ventilation and creates a calm internal focus.",
+    "category": "4 Bedroom House Plans",
+    "totalArea": 244,
+    "builtArea": 216,
+    "plotWidth": 25,
+    "plotLength": 30,
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "livingRooms": 2,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Flat roof",
+    "architecturalStyle": "Modern courtyard villa",
+    "foundationType": "Reinforced raft foundation",
+    "structureType": "Concrete frame",
+    "mainImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": false,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 14.99,
+    "cadPrice": 49.99,
+    "badges": [
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "IFC",
+      "Hot Climate Friendly"
+    ],
+    "scores": {
+      "functionality": 94,
+      "comfort": 95,
+      "constructionSimplicity": 76,
+      "costEfficiency": 70,
+      "hotClimateAdaptation": 92,
+      "futureExtension": 80,
+      "naturalVentilation": 88,
+      "familySuitability": 93
+    },
+    "bestFor": [
+      "Large family",
+      "Premium residence",
+      "Wide plots",
+      "Courtyard living"
+    ],
+    "beCareful": [
+      "Higher construction budget",
+      "Requires careful drainage planning"
+    ],
+    "status": "Published",
+    "views": 7320,
+    "tags": [
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "IFC",
+      "Hot Climate Friendly"
+    ],
+    "livingArea": 176,
+    "minPlotWidth": 25,
+    "minPlotLength": 30,
+    "minimumPlotWidth": 25,
+    "minimumPlotLength": 30,
+    "constructionDifficulty": "Medium",
+    "climateTags": [
+      "Hot climate",
+      "Dry climate"
+    ],
+    "specialFeatures": [
+      "Hot Climate Friendly"
+    ],
+    "features": [
+      "Hot Climate Friendly"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Modern 4 Bedroom House Plan with Courtyard exterior preview",
+    "galleryImageAlt": "Modern 4 Bedroom House Plan with Courtyard gallery image",
+    "oldPremiumPrice": 19.99,
+    "oldCadPrice": 59.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/modern-4-bedroom-house-plan-with-courtyard-premium-pack.zip",
+    "dwgFileUrl": "/uploads/modern-4-bedroom-house-plan-with-courtyard.dwg",
+    "revitFileUrl": "/uploads/modern-4-bedroom-house-plan-with-courtyard.rvt",
+    "ifcFileUrl": "/uploads/modern-4-bedroom-house-plan-with-courtyard.ifc",
+    "cadZipUrl": "/uploads/modern-4-bedroom-house-plan-with-courtyard-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Higher construction budget",
+      "Requires careful drainage planning"
+    ],
+    "recommendedUsers": [
+      "Large family",
+      "Premium residence",
+      "Wide plots",
+      "Courtyard living"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Modern 4 Bedroom House Plan with Courtyard | PDF DWG Revit House Plan",
+    "seoDescription": "A refined family villa organized around a private courtyard for light and airflow.",
+    "metaDescription": "A refined family villa organized around a private courtyard for light and airflow.",
+    "seoKeywords": [
+      "4 Bedroom House Plans",
+      "4 bedroom house plan",
+      "25x30m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/modern-4-bedroom-house-plan-with-courtyard",
+    "focusKeyword": "modern 4 bedroom house plan with courtyard",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 83,
+    "readinessScore": 84,
+    "downloads": 960,
+    "premiumClicks": 154,
+    "cadClicks": 92,
+    "updatedDate": "May 23, 2026",
+    "createdAt": "2026-05-13",
+    "updatedAt": "2026-05-23",
+    "publishedAt": "2026-05-23",
+    "featured": false,
+    "popular": false,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 4,
+    "categoryRank": 4,
+    "homepageRank": 4,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 86,
+    "priorityScore": 60
+  },
+  {
+    "id": "plan-005",
+    "title": "Compact House Plan for 20x10m / 66x33 ft Plot",
+    "slug": "compact-house-plan-20x10m-plot",
+    "reference": "MFHP-005/2026",
+    "shortDescription": "A narrow-plot plan with clear circulation and no wasted rooms.",
+    "description": "Created for long narrow plots, this compact house keeps living spaces bright while respecting practical setbacks and a straightforward structure.",
+    "category": "20x10m / 66x33 ft Plot House Plans",
+    "totalArea": 102,
+    "builtArea": 90,
+    "plotWidth": 10,
+    "plotLength": 20,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Shed roof",
+    "architecturalStyle": "Urban compact",
+    "foundationType": "Strip foundation",
+    "structureType": "Concrete block",
+    "mainImage": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": false,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 8.99,
+    "cadPrice": 0,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "20x10m / 66x33 ft Plot",
+      "Low Cost"
+    ],
+    "scores": {
+      "functionality": 82,
+      "comfort": 76,
+      "constructionSimplicity": 89,
+      "costEfficiency": 88,
+      "hotClimateAdaptation": 78,
+      "futureExtension": 70,
+      "naturalVentilation": 74,
+      "familySuitability": 74
+    },
+    "bestFor": [
+      "Narrow plots",
+      "Urban infill",
+      "Small families"
+    ],
+    "beCareful": [
+      "Check side setbacks",
+      "Ventilation depends on site openings"
+    ],
+    "status": "Draft",
+    "views": 4210,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "20x10m / 66x33 ft Plot",
+      "Low Cost"
+    ],
+    "livingArea": 73,
+    "minPlotWidth": 10,
+    "minPlotLength": 20,
+    "minimumPlotWidth": 10,
+    "minimumPlotLength": 20,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Humid climate"
+    ],
+    "specialFeatures": [
+      "Low Cost"
+    ],
+    "features": [
+      "Low Cost"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Compact House Plan for 20x10m / 66x33 ft Plot exterior preview",
+    "galleryImageAlt": "Compact House Plan for 20x10m / 66x33 ft Plot gallery image",
+    "oldPremiumPrice": 13.99,
+    "oldCadPrice": 0,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/compact-house-plan-20x10m-plot-premium-pack.zip",
+    "dwgFileUrl": "",
+    "revitFileUrl": "",
+    "ifcFileUrl": "",
+    "cadZipUrl": "",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Check side setbacks",
+      "Ventilation depends on site openings"
+    ],
+    "recommendedUsers": [
+      "Narrow plots",
+      "Urban infill",
+      "Small families"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Compact House Plan for 20x10m / 66x33 ft Plot | PDF DWG Revit House Plan",
+    "seoDescription": "A narrow-plot plan with clear circulation and no wasted rooms.",
+    "metaDescription": "A narrow-plot plan with clear circulation and no wasted rooms.",
+    "seoKeywords": [
+      "20x10m / 66x33 ft Plot House Plans",
+      "3 bedroom house plan",
+      "10x20m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/compact-house-plan-20x10m-plot",
+    "focusKeyword": "compact house plan for 20x10m / 66x33 ft plot",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 86,
+    "readinessScore": 86,
+    "downloads": 1140,
+    "premiumClicks": 182,
+    "cadClicks": 0,
+    "updatedDate": "May 24, 2026",
+    "createdAt": "2026-05-14",
+    "updatedAt": "2026-05-24",
+    "featured": false,
+    "popular": false,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 5,
+    "categoryRank": 5,
+    "homepageRank": 5,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 79,
+    "priorityScore": 54
+  },
+  {
+    "id": "plan-006",
+    "title": "African Family House Plan with Veranda",
+    "slug": "african-family-house-plan-with-veranda",
+    "reference": "MFHP-006/2026",
+    "shortDescription": "A family home shaped for veranda living, shade and practical everyday routines.",
+    "description": "This plan blends contemporary organization with familiar African family living patterns. The veranda supports social life, shade and outdoor work areas.",
+    "category": "African House Plans",
+    "totalArea": 156,
+    "builtArea": 132,
+    "plotWidth": 18,
+    "plotLength": 25,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Hip roof",
+    "architecturalStyle": "African contemporary",
+    "foundationType": "Strip foundation",
+    "structureType": "Concrete frame and masonry",
+    "mainImage": "https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600566752734-20a0ef0a2e07?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 9.99,
+    "cadPrice": 34.99,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "With Terrace",
+      "Hot Climate Friendly"
+    ],
+    "scores": {
+      "functionality": 90,
+      "comfort": 88,
+      "constructionSimplicity": 86,
+      "costEfficiency": 84,
+      "hotClimateAdaptation": 96,
+      "futureExtension": 82,
+      "naturalVentilation": 92,
+      "familySuitability": 86
+    },
+    "bestFor": [
+      "African family life",
+      "Shaded outdoor living",
+      "Hot climates"
+    ],
+    "beCareful": [
+      "Veranda orientation should suit sun path",
+      "Check local roof detailing"
+    ],
+    "status": "Published",
+    "views": 11140,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "With Terrace",
+      "Hot Climate Friendly"
+    ],
+    "livingArea": 112,
+    "minPlotWidth": 18,
+    "minPlotLength": 25,
+    "minimumPlotWidth": 18,
+    "minimumPlotLength": 25,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Humid climate"
+    ],
+    "specialFeatures": [
+      "With Terrace",
+      "Hot Climate Friendly"
+    ],
+    "features": [
+      "With Terrace",
+      "Hot Climate Friendly"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600566752734-20a0ef0a2e07?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600566752734-20a0ef0a2e07?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "African Family House Plan with Veranda exterior preview",
+    "galleryImageAlt": "African Family House Plan with Veranda gallery image",
+    "oldPremiumPrice": 14.99,
+    "oldCadPrice": 44.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/african-family-house-plan-with-veranda-premium-pack.zip",
+    "dwgFileUrl": "/uploads/african-family-house-plan-with-veranda.dwg",
+    "revitFileUrl": "",
+    "ifcFileUrl": "",
+    "cadZipUrl": "/uploads/african-family-house-plan-with-veranda-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Veranda orientation should suit sun path",
+      "Check local roof detailing"
+    ],
+    "recommendedUsers": [
+      "African family life",
+      "Shaded outdoor living",
+      "Hot climates"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "African Family House Plan with Veranda | PDF DWG Revit House Plan",
+    "seoDescription": "A family home shaped for veranda living, shade and practical everyday routines.",
+    "metaDescription": "A family home shaped for veranda living, shade and practical everyday routines.",
+    "seoKeywords": [
+      "African House Plans",
+      "3 bedroom house plan",
+      "18x25m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/african-family-house-plan-with-veranda",
+    "focusKeyword": "african family house plan with veranda",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 89,
+    "readinessScore": 88,
+    "downloads": 1320,
+    "premiumClicks": 210,
+    "cadClicks": 130,
+    "updatedDate": "May 25, 2026",
+    "createdAt": "2026-05-15",
+    "updatedAt": "2026-05-25",
+    "publishedAt": "2026-05-25",
+    "featured": false,
+    "popular": true,
+    "isNew": false,
+    "showOnHomepage": true,
+    "showInCategory": true,
+    "manualRank": 6,
+    "categoryRank": 6,
+    "homepageRank": 6,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 88,
+    "priorityScore": 76
+  },
+  {
+    "id": "plan-007",
+    "title": "Duplex House Plan with Revit Files",
+    "slug": "duplex-house-plan-with-revit-files",
+    "reference": "MFHP-007/2026",
+    "shortDescription": "A two-level duplex package for professionals who need editable BIM source files.",
+    "description": "This duplex plan is prepared for advanced coordination, with Revit and IFC options for designers, builders and students who need editable source files.",
+    "category": "Revit House Plans",
+    "totalArea": 286,
+    "builtArea": 248,
+    "plotWidth": 18,
+    "plotLength": 25,
+    "bedrooms": 5,
+    "bathrooms": 5,
+    "livingRooms": 2,
+    "kitchens": 1,
+    "floors": 2,
+    "roofType": "Flat roof",
+    "architecturalStyle": "Modern duplex",
+    "foundationType": "Raft foundation",
+    "structureType": "Reinforced concrete frame",
+    "mainImage": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": false,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 19.99,
+    "cadPrice": 69.99,
+    "badges": [
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "IFC"
+    ],
+    "scores": {
+      "functionality": 91,
+      "comfort": 92,
+      "constructionSimplicity": 68,
+      "costEfficiency": 64,
+      "hotClimateAdaptation": 82,
+      "futureExtension": 76,
+      "naturalVentilation": 78,
+      "familySuitability": 90
+    },
+    "bestFor": [
+      "Professionals",
+      "Large families",
+      "BIM learning",
+      "Premium construction"
+    ],
+    "beCareful": [
+      "Needs structural coordination",
+      "Higher budget and site supervision"
+    ],
+    "status": "Published",
+    "views": 6480,
+    "tags": [
+      "Premium PDF",
+      "DWG",
+      "Revit",
+      "IFC"
+    ],
+    "livingArea": 206,
+    "minPlotWidth": 18,
+    "minPlotLength": 25,
+    "minimumPlotWidth": 18,
+    "minimumPlotLength": 25,
+    "constructionDifficulty": "Advanced",
+    "climateTags": [
+      "Hot climate",
+      "Dry climate"
+    ],
+    "specialFeatures": [],
+    "features": [],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Duplex House Plan with Revit Files exterior preview",
+    "galleryImageAlt": "Duplex House Plan with Revit Files gallery image",
+    "oldPremiumPrice": 24.99,
+    "oldCadPrice": 79.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/duplex-house-plan-with-revit-files-premium-pack.zip",
+    "dwgFileUrl": "/uploads/duplex-house-plan-with-revit-files.dwg",
+    "revitFileUrl": "/uploads/duplex-house-plan-with-revit-files.rvt",
+    "ifcFileUrl": "/uploads/duplex-house-plan-with-revit-files.ifc",
+    "cadZipUrl": "/uploads/duplex-house-plan-with-revit-files-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Needs structural coordination",
+      "Higher budget and site supervision"
+    ],
+    "recommendedUsers": [
+      "Professionals",
+      "Large families",
+      "BIM learning",
+      "Premium construction"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Duplex House Plan with Revit Files | PDF DWG Revit House Plan",
+    "seoDescription": "A two-level duplex package for professionals who need editable BIM source files.",
+    "metaDescription": "A two-level duplex package for professionals who need editable BIM source files.",
+    "seoKeywords": [
+      "Revit House Plans",
+      "5 bedroom house plan",
+      "18x25m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/duplex-house-plan-with-revit-files",
+    "focusKeyword": "duplex house plan with revit files",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 92,
+    "readinessScore": 90,
+    "downloads": 1500,
+    "premiumClicks": 238,
+    "cadClicks": 149,
+    "updatedDate": "May 26, 2026",
+    "createdAt": "2026-05-16",
+    "updatedAt": "2026-05-26",
+    "publishedAt": "2026-05-26",
+    "featured": false,
+    "popular": false,
+    "isNew": true,
+    "showOnHomepage": false,
+    "showInCategory": true,
+    "manualRank": 7,
+    "categoryRank": 7,
+    "homepageRank": 7,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 80,
+    "priorityScore": 68
+  },
+  {
+    "id": "plan-008",
+    "title": "Simple Rental Unit House Plan",
+    "slug": "simple-rental-unit-house-plan",
+    "reference": "MFHP-008/2026",
+    "shortDescription": "A repeatable rental unit plan for simple compounds and income property projects.",
+    "description": "A practical rental unit concept with compact services, clear access and easy repetition across a site. Useful for landlords and small developers.",
+    "category": "Low Cost House Plans",
+    "totalArea": 54,
+    "builtArea": 48,
+    "plotWidth": 8,
+    "plotLength": 14,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "livingRooms": 1,
+    "kitchens": 1,
+    "floors": 1,
+    "roofType": "Gable roof",
+    "architecturalStyle": "Simple rental",
+    "foundationType": "Strip foundation",
+    "structureType": "Block wall construction",
+    "mainImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "freePackEnabled": true,
+    "premiumPackEnabled": true,
+    "cadPackEnabled": true,
+    "freePdfUrl": "#",
+    "premiumUrl": "#",
+    "cadUrl": "#",
+    "premiumPrice": 6.99,
+    "cadPrice": 24.99,
+    "badges": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Low Cost"
+    ],
+    "scores": {
+      "functionality": 78,
+      "comfort": 70,
+      "constructionSimplicity": 97,
+      "costEfficiency": 94,
+      "hotClimateAdaptation": 76,
+      "futureExtension": 68,
+      "naturalVentilation": 72,
+      "familySuitability": 70
+    },
+    "bestFor": [
+      "Rental units",
+      "Small developers",
+      "Low cost builds"
+    ],
+    "beCareful": [
+      "Compact plan",
+      "Privacy depends on compound layout"
+    ],
+    "status": "Published",
+    "views": 8730,
+    "tags": [
+      "Free Preview",
+      "Premium PDF",
+      "DWG",
+      "Low Cost"
+    ],
+    "livingArea": 39,
+    "minPlotWidth": 8,
+    "minPlotLength": 14,
+    "minimumPlotWidth": 8,
+    "minimumPlotLength": 14,
+    "constructionDifficulty": "Easy",
+    "climateTags": [
+      "Hot climate",
+      "Humid climate"
+    ],
+    "specialFeatures": [
+      "Low Cost"
+    ],
+    "features": [
+      "Low Cost"
+    ],
+    "floorPlanImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "elevationImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80",
+    "threeDViewImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "threeDImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "cadPreviewImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "revitPreviewImage": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80",
+    "openGraphImage": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80",
+    "mainImageAlt": "Simple Rental Unit House Plan exterior preview",
+    "galleryImageAlt": "Simple Rental Unit House Plan gallery image",
+    "oldPremiumPrice": 11.99,
+    "oldCadPrice": 34.99,
+    "currency": "USD",
+    "premiumPdfUrl": "#",
+    "premiumZipUrl": "/uploads/simple-rental-unit-house-plan-premium-pack.zip",
+    "dwgFileUrl": "/uploads/simple-rental-unit-house-plan.dwg",
+    "revitFileUrl": "",
+    "ifcFileUrl": "",
+    "cadZipUrl": "/uploads/simple-rental-unit-house-plan-cad-revit.zip",
+    "freePackDescription": "Watermarked PDF preview for early layout review.",
+    "premiumPackDescription": "Complete PDF pack for deeper review and local adaptation.",
+    "cadPackDescription": "Editable source package for architects, engineers, builders and students.",
+    "isWatermarked": true,
+    "premiumIncludedFiles": [
+      "Complete PDF",
+      "Floor plans",
+      "Elevations",
+      "Sections",
+      "Roof plan",
+      "Metric version",
+      "Imperial version"
+    ],
+    "cadIncludedFiles": [
+      "DWG",
+      "Revit RVT",
+      "IFC",
+      "Complete PDF",
+      "3D images",
+      "Editable source files",
+      "Metric version"
+    ],
+    "mainStrengths": [
+      "Clear circulation",
+      "Practical room zoning",
+      "Good market appeal"
+    ],
+    "mainLimitations": [
+      "Compact plan",
+      "Privacy depends on compound layout"
+    ],
+    "recommendedUsers": [
+      "Rental units",
+      "Small developers",
+      "Low cost builds"
+    ],
+    "constructionNotes": "Review structure, drainage, soil and local code requirements before construction.",
+    "climateNotes": "Orient openings, shading and roof detailing according to local sun, wind and rainfall conditions.",
+    "futureExtensionNotes": "Future changes should be coordinated before foundation and structural work.",
+    "seoTitle": "Simple Rental Unit House Plan | PDF DWG Revit House Plan",
+    "seoDescription": "A repeatable rental unit plan for simple compounds and income property projects.",
+    "metaDescription": "A repeatable rental unit plan for simple compounds and income property projects.",
+    "seoKeywords": [
+      "Low Cost House Plans",
+      "1 bedroom house plan",
+      "8x14m plot"
+    ],
+    "canonicalUrl": "https://myfreehouseplans.com/plans/simple-rental-unit-house-plan",
+    "focusKeyword": "simple rental unit house plan",
+    "secondaryKeywords": [
+      "free house plans PDF",
+      "DWG house plan",
+      "Revit house plan"
+    ],
+    "seoScore": 95,
+    "readinessScore": 92,
+    "downloads": 1680,
+    "premiumClicks": 266,
+    "cadClicks": 168,
+    "updatedDate": "May 27, 2026",
+    "createdAt": "2026-05-17",
+    "updatedAt": "2026-05-27",
+    "publishedAt": "2026-05-27",
+    "featured": false,
+    "popular": false,
+    "isNew": true,
+    "showOnHomepage": false,
+    "showInCategory": true,
+    "manualRank": 8,
+    "categoryRank": 8,
+    "homepageRank": 8,
+    "faq": [
+      {
+        "question": "Can I use this plan directly for construction?",
+        "answer": "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions."
+      },
+      {
+        "question": "What is included in the free PDF?",
+        "answer": "The free preview includes a watermarked plan overview and key dimensions for early review."
+      },
+      {
+        "question": "What is included in the premium PDF pack?",
+        "answer": "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available."
+      },
+      {
+        "question": "What is the difference between PDF, DWG, Revit and IFC?",
+        "answer": "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format."
+      },
+      {
+        "question": "Can this plan be modified?",
+        "answer": "Yes, but modifications should be handled by a qualified local professional."
+      }
+    ],
+    "smartScore": 78,
+    "priorityScore": 73
+  }
+]

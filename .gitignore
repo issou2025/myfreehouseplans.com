@@ -1,0 +1,11 @@
+.env*.local
+node_modules
+.next
+.npm-cache
+.render-upload-check
+.vscode
+*.log
+*.err
+tsconfig.tsbuildinfo
+data/messages.json
+data/deleted-plans.json
