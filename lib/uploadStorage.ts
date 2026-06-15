@@ -95,7 +95,8 @@ export async function saveUpload(fileName: string, bytes: Buffer) {
 
     const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`, {
       method: "POST",
-      body: formData
+      body: formData,
+      signal: AbortSignal.timeout(30_000)
     });
     const data = (await response.json()) as { secure_url?: string; public_id?: string; error?: { message?: string } };
 

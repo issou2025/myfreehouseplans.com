@@ -13,9 +13,15 @@ export type ApiError = {
 };
 
 export function jsonSuccess<T>(message: string, data: T, status = 200) {
-  return NextResponse.json<ApiSuccess<T>>({ success: true, message, data }, { status });
+  return NextResponse.json<ApiSuccess<T>>({ success: true, message, data }, {
+    status,
+    headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" }
+  });
 }
 
 export function jsonError(message: string, status = 400, errors?: Record<string, string>) {
-  return NextResponse.json<ApiError>({ success: false, message, errors }, { status });
+  return NextResponse.json<ApiError>({ success: false, message, errors }, {
+    status,
+    headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" }
+  });
 }

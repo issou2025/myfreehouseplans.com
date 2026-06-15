@@ -3,6 +3,7 @@ import crypto from "crypto";
 import { jsonError, jsonSuccess } from "@/lib/apiResponse";
 import { getClientKey, rateLimit } from "@/lib/security";
 import { saveUpload } from "@/lib/uploadStorage";
+import { hasValidFileSignature } from "@/lib/fileValidation";
 
 export const runtime = "nodejs";
 
@@ -85,6 +86,9 @@ export async function POST(request: Request) {
 
     const fileName = sanitizeName(file.name);
     const bytes = Buffer.from(await file.arrayBuffer());
+    if (!hasValidFileSignature(file.name, bytes)) {
+      return jsonError("File content does not match its extension.", 400, { file: "Choose a genuine, non-corrupted file." });
+    }
     const savedUpload = await saveUpload(fileName, bytes);
 
     return jsonSuccess("File uploaded.", {

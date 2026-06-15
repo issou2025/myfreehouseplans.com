@@ -14,8 +14,31 @@ const blockedBotPatterns = [
   /petalbot/i,
   /semrush/i,
   /serpstat/i,
+  /curl/i,
+  /dirbuster/i,
+  /gobuster/i,
+  /go-http-client/i,
+  /libwww-perl/i,
+  /masscan/i,
+  /nikto/i,
+  /nmap/i,
+  /nuclei/i,
+  /python-requests/i,
   /scrapy/i,
+  /sqlmap/i,
+  /zgrab/i,
   /wget/i
+];
+
+const scannerPathPatterns = [
+  /(^|\/)\.env([./]|$)/i,
+  /(^|\/)\.git([/]|$)/i,
+  /(^|\/)\.svn([/]|$)/i,
+  /(^|\/)phpmyadmin([/]|$)/i,
+  /(^|\/)wp-admin([/]|$)/i,
+  /(^|\/)wp-login\.php$/i,
+  /(^|\/)xmlrpc\.php$/i,
+  /\.(asp|aspx|cgi|env|ini|log|php|sh|sql)$/i
 ];
 
 const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
@@ -23,8 +46,10 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const PUBLIC_RATE_LIMIT = 180;
 const ADMIN_RATE_LIMIT = 60;
 const API_WRITE_RATE_LIMIT = 40;
+const MAX_RATE_LIMIT_BUCKETS = 10_000;
 const ADMIN_COOKIE_NAME = "mfhp_admin_session";
 const UNSAFE_METHODS = new Set(["POST", "PUT", "PATCH", "DELETE"]);
+const ALLOWED_METHODS = new Set(["GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"]);
 
 function isProtectedPath(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -60,6 +85,37 @@ function unauthorizedResponse(request: NextRequest) {
 function forbiddenResponse(message = "Forbidden.") {
   return new NextResponse(message, {
     status: 403,
+    headers: {
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": "noindex, nofollow"
+    }
+  });
+}
+
+function notFoundResponse() {
+  return new NextResponse("Not found.", {
+    status: 404,
+    headers: {
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": "noindex, nofollow"
+    }
+  });
+}
+
+function methodNotAllowedResponse() {
+  return new NextResponse("Method not allowed.", {
+    status: 405,
+    headers: {
+      "Allow": Array.from(ALLOWED_METHODS).join(", "),
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": "noindex, nofollow"
+    }
+  });
+}
+
+function payloadTooLargeResponse() {
+  return new NextResponse("Request payload is too large.", {
+    status: 413,
     headers: {
       "Cache-Control": "no-store",
       "X-Robots-Tag": "noindex, nofollow"
@@ -104,7 +160,16 @@ async function isValidSessionCookie(request: NextRequest) {
   if (!expiresAt || !signature || Number(expiresAt) < Date.now()) return false;
 
   const expectedSignature = await signAdminSession(expiresAt, secret);
-  return signature === expectedSignature;
+  return constantTimeEqual(signature, expectedSignature);
+}
+
+function constantTimeEqual(value: string, expected: string) {
+  const length = Math.max(value.length, expected.length);
+  let mismatch = value.length ^ expected.length;
+  for (let index = 0; index < length; index += 1) {
+    mismatch |= (value.charCodeAt(index) || 0) ^ (expected.charCodeAt(index) || 0);
+  }
+  return mismatch === 0;
 }
 
 async function isAuthorized(request: NextRequest) {
@@ -123,18 +188,25 @@ async function isAuthorized(request: NextRequest) {
     if (separatorIndex === -1) return false;
     const providedUsername = decoded.slice(0, separatorIndex);
     const providedPassword = decoded.slice(separatorIndex + 1);
-    return providedUsername === username && providedPassword === password;
+    return constantTimeEqual(providedUsername, username) && constantTimeEqual(providedPassword, password);
   } catch {
     return false;
   }
 }
 
 function getClientKey(request: NextRequest) {
-  return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "local";
+  const candidate = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "local";
+  return candidate.replace(/[^a-f0-9:.\-]/gi, "").slice(0, 64) || "unknown";
 }
 
 function passesRateLimit(key: string, limit: number) {
   const now = Date.now();
+  if (rateLimitBuckets.size >= MAX_RATE_LIMIT_BUCKETS) {
+    rateLimitBuckets.forEach((bucket, bucketKey) => {
+      if (bucket.resetAt < now) rateLimitBuckets.delete(bucketKey);
+    });
+    if (rateLimitBuckets.size >= MAX_RATE_LIMIT_BUCKETS) rateLimitBuckets.clear();
+  }
   const current = rateLimitBuckets.get(key);
 
   if (!current || current.resetAt < now) {
@@ -155,13 +227,50 @@ function isBlockedBot(request: NextRequest) {
 function isSameOriginWrite(request: NextRequest) {
   if (!UNSAFE_METHODS.has(request.method)) return true;
   const origin = request.headers.get("origin");
-  if (!origin) return true;
+  const referer = request.headers.get("referer");
+  const authorization = request.headers.get("authorization");
+  const source = origin || referer;
+  if (!source) return Boolean(authorization?.startsWith("Basic "));
 
   try {
-    return new URL(origin).host === request.nextUrl.host;
+    const sourceHost = new URL(source).host.toLowerCase();
+    const trustedHosts = new Set<string>();
+    const addHost = (host: string | null | undefined) => {
+      const normalized = host?.split(",")[0]?.trim().toLowerCase();
+      if (normalized) trustedHosts.add(normalized);
+    };
+
+    addHost(request.nextUrl.host);
+    addHost(request.headers.get("host"));
+
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+      addHost(new URL(process.env.NEXT_PUBLIC_SITE_URL).host);
+    }
+
+    return trustedHosts.has(sourceHost);
   } catch {
     return false;
   }
+}
+
+function isPayloadTooLarge(request: NextRequest) {
+  const length = Number(request.headers.get("content-length"));
+  if (!Number.isFinite(length) || length <= 0) return false;
+  const pathname = request.nextUrl.pathname;
+  if (pathname === "/api/admin/login") return length > 16 * 1024;
+  if (pathname === "/api/messages") return length > 64 * 1024;
+  if (pathname === "/api/plans") return length > 2 * 1024 * 1024;
+  if (pathname === "/api/upload/signature") return length > 16 * 1024;
+  return false;
+}
+
+function hasWeakProductionSecrets() {
+  if (process.env.NODE_ENV !== "production") return false;
+  return !process.env.ADMIN_PASSWORD
+    || process.env.ADMIN_PASSWORD.length < 16
+    || !process.env.ADMIN_SESSION_SECRET
+    || process.env.ADMIN_SESSION_SECRET.length < 32
+    || process.env.ADMIN_SESSION_SECRET === process.env.ADMIN_PASSWORD;
 }
 
 function shouldSkipSecurityHeaders(pathname: string) {
@@ -172,8 +281,11 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (!shouldSkipSecurityHeaders(pathname)) {
-    if (isBlockedBot(request)) return forbiddenResponse("Crawler blocked.");
+    if (!ALLOWED_METHODS.has(request.method)) return methodNotAllowedResponse();
+    if (scannerPathPatterns.some((pattern) => pattern.test(pathname))) return notFoundResponse();
+    if (pathname !== "/api/health" && isBlockedBot(request)) return forbiddenResponse("Crawler blocked.");
     if (!isSameOriginWrite(request)) return forbiddenResponse("Cross-origin write blocked.");
+    if (isPayloadTooLarge(request)) return payloadTooLargeResponse();
 
     const area = pathname.startsWith("/admin") || pathname.startsWith("/api/admin")
       ? "admin"
@@ -186,8 +298,8 @@ export async function middleware(request: NextRequest) {
   }
 
   if (isProtectedPath(request)) {
-    if (process.env.NODE_ENV === "production" && !process.env.ADMIN_PASSWORD) {
-      return new NextResponse("ADMIN_PASSWORD is required in production.", {
+    if (hasWeakProductionSecrets()) {
+      return new NextResponse("Strong admin credentials and a separate session secret are required in production.", {
         status: 503,
         headers: {
           "Cache-Control": "no-store",
@@ -204,10 +316,15 @@ export async function middleware(request: NextRequest) {
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  response.headers.set(
+    "Permissions-Policy",
+    "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), usb=()"
+  );
   response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
   response.headers.set("Cross-Origin-Resource-Policy", "same-origin");
   response.headers.set("X-DNS-Prefetch-Control", "off");
+  response.headers.set("X-Permitted-Cross-Domain-Policies", "none");
+  response.headers.set("Origin-Agent-Cluster", "?1");
 
   if (isProtectedPath(request)) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
@@ -218,5 +335,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)"]
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"]
 };

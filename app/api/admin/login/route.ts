@@ -8,7 +8,7 @@ const ADMIN_COOKIE_NAME = "mfhp_admin_session";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 function safeNextPath(value: FormDataEntryValue | null) {
-  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) return "/admin";
+  if (typeof value !== "string" || value.length > 500 || !value.startsWith("/") || value.startsWith("//") || value.includes("\\") || /[\u0000-\u001f\u007f]/.test(value)) return "/admin";
   return value;
 }
 
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
   const expectedUsername = process.env.ADMIN_USERNAME || "admin";
   const expectedPassword = process.env.ADMIN_PASSWORD;
 
-  if (!expectedPassword || !constantTimeEqual(username, expectedUsername) || !constantTimeEqual(password, expectedPassword)) {
+  if (username.length > 200 || password.length > 500 || !expectedPassword || !constantTimeEqual(username, expectedUsername) || !constantTimeEqual(password, expectedPassword)) {
     const url = new URL("/admin/login", request.url);
     url.searchParams.set("error", "1");
     url.searchParams.set("next", nextPath);
@@ -54,6 +54,8 @@ export async function POST(request: Request) {
   const secret = process.env.ADMIN_SESSION_SECRET || expectedPassword;
   const token = `${expiresAt}.${signAdminSession(expiresAt, secret)}`;
   const response = NextResponse.redirect(new URL(nextPath, request.url), 303);
+  response.headers.set("Cache-Control", "no-store");
+  response.headers.set("X-Robots-Tag", "noindex, nofollow");
 
   response.cookies.set(ADMIN_COOKIE_NAME, token, {
     httpOnly: true,

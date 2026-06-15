@@ -1,7 +1,7 @@
 import { jsonError, jsonSuccess } from "@/lib/apiResponse";
 import { deletePlan, readPlans, writePlan } from "@/lib/planData";
 import { isReferenceUnique, normalizePlanReference, parsePlanReference } from "@/lib/planReferences";
-import { cleanMultilineText, cleanText, getClientKey, isSafeRelativeOrHttpUrl, rateLimit } from "@/lib/security";
+import { cleanMultilineText, cleanText, getClientKey, isSafeRelativeOrHttpUrl, rateLimit, readJsonBody } from "@/lib/security";
 import { slugify } from "@/lib/slug";
 import type { Plan } from "@/types/plan";
 
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
     let body: Plan;
     try {
-      body = (await request.json()) as Plan;
+      body = await readJsonBody<Plan>(request, 2 * 1024 * 1024);
     } catch {
       return jsonError("Invalid JSON body.", 400);
     }
@@ -146,7 +146,7 @@ export async function DELETE(request: Request) {
     if (!rateLimit(`plans-delete:${getClientKey(request)}`, 30, 60_000)) {
       return jsonError("Too many plan actions. Please wait a minute and try again.", 429);
     }
-    const body = (await request.json()) as { id?: string };
+    const body = await readJsonBody<{ id?: string }>(request, 8 * 1024);
     const id = cleanText(body.id, 120);
     if (!id) return jsonError("Plan id is required.", 400);
     await deletePlan(id);

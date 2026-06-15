@@ -3,6 +3,7 @@ import path from "path";
 import { jsonError, jsonSuccess } from "@/lib/apiResponse";
 import { getClientKey, rateLimit } from "@/lib/security";
 import { saveUpload } from "@/lib/uploadStorage";
+import { hasValidFileSignature } from "@/lib/fileValidation";
 
 export const runtime = "nodejs";
 
@@ -44,7 +45,11 @@ export async function POST(request: Request) {
       return jsonError("File is too large.", 400, { file: "Maximum size is 8MB." });
     }
 
-    const savedUpload = await saveUpload(sanitizeName(file.name), Buffer.from(await file.arrayBuffer()));
+    const bytes = Buffer.from(await file.arrayBuffer());
+    if (!hasValidFileSignature(file.name, bytes)) {
+      return jsonError("File content does not match its extension.", 400, { file: "Choose a genuine JPG, PNG, WebP or PDF file." });
+    }
+    const savedUpload = await saveUpload(sanitizeName(file.name), bytes);
     return jsonSuccess("Project file uploaded.", {
       url: savedUpload.url,
       name: file.name,

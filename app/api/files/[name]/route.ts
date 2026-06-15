@@ -31,7 +31,10 @@ export async function GET(_: Request, { params }: { params: Promise<{ name: stri
     return new NextResponse(bytes, {
       headers: {
         "Content-Type": contentTypes[extension] ?? "application/octet-stream",
-        "Cache-Control": "public, max-age=31536000, immutable"
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Disposition": `${extension === ".pdf" || extension.startsWith(".") && ![".jpg", ".jpeg", ".png", ".webp", ".avif"].includes(extension) ? "attachment" : "inline"}; filename="${name}"`,
+        "X-Content-Type-Options": "nosniff",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     });
   } catch {

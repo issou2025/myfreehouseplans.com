@@ -1,6 +1,6 @@
 import { jsonError, jsonSuccess } from "@/lib/apiResponse";
 import { deleteMessage, readMessages, updateMessage, writeMessage } from "@/lib/messageData";
-import { cleanMultilineText, cleanText, getClientKey, isEmail, isSafeRelativeOrHttpUrl, rateLimit } from "@/lib/security";
+import { cleanMultilineText, cleanText, getClientKey, isEmail, isSafeRelativeOrHttpUrl, rateLimit, readJsonBody } from "@/lib/security";
 import type { Message } from "@/types/message";
 
 export const runtime = "nodejs";
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       website?: string;
     };
     try {
-      body = (await request.json()) as typeof body;
+      body = await readJsonBody<typeof body>(request, 64 * 1024);
     } catch {
       return jsonError("Invalid JSON body.", 400);
     }
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
 
 export async function PATCH(request: Request) {
   try {
-    const body = (await request.json()) as { id?: string; status?: Message["status"] };
+    const body = await readJsonBody<{ id?: string; status?: Message["status"] }>(request, 8 * 1024);
     const id = cleanText(body.id, 120);
     const statuses: Message["status"][] = ["New", "Read", "Replied", "Archived"];
     if (!id) return jsonError("Message id is required.", 400);
@@ -94,7 +94,7 @@ export async function PATCH(request: Request) {
 
 export async function DELETE(request: Request) {
   try {
-    const body = (await request.json()) as { id?: string };
+    const body = await readJsonBody<{ id?: string }>(request, 8 * 1024);
     const id = cleanText(body.id, 120);
     if (!id) return jsonError("Message id is required.", 400);
     if (!(await deleteMessage(id))) return jsonError("Message not found.", 404);
