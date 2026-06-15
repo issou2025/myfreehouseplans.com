@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import { getSiteUrl, siteName } from "@/lib/site";
 import "./globals.css";
@@ -44,7 +45,10 @@ export const viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src="https://gumroad.com/js/gumroad.js" strategy="afterInteractive" />
+      </body>
     </html>
   );
 }

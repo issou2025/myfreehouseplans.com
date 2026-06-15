@@ -346,6 +346,8 @@ export const mockPlans: Plan[] = basePlans.map((plan, index): Plan => ({
   oldPremiumPrice: plan.oldPremiumPrice ?? Math.round((plan.premiumPrice + 5) * 100) / 100,
   oldCadPrice: plan.oldCadPrice ?? (plan.cadPrice ? Math.round((plan.cadPrice + 10) * 100) / 100 : 0),
   currency: plan.currency ?? "USD",
+  gumroadPremiumUrl: plan.gumroadPremiumUrl ?? "",
+  gumroadCadUrl: plan.gumroadCadUrl ?? "",
   premiumPdfUrl: plan.premiumPdfUrl ?? plan.premiumUrl,
   premiumZipUrl: plan.premiumZipUrl ?? (plan.premiumPackEnabled ? `/uploads/${plan.slug}-premium-pack.zip` : ""),
   dwgFileUrl: plan.dwgFileUrl ?? (plan.cadPackEnabled ? `/uploads/${plan.slug}.dwg` : ""),

@@ -26,9 +26,9 @@ export function getReadinessScore(plan: Plan) {
     plan.totalArea > 0 && plan.bedrooms >= 0,
     !plan.freePackEnabled || Boolean(plan.freePdfUrl),
     !plan.premiumPackEnabled || plan.premiumPrice > 0,
-    !plan.premiumPackEnabled || Boolean(plan.premiumUrl),
+    !plan.premiumPackEnabled || Boolean(plan.gumroadPremiumUrl || plan.premiumUrl),
     !plan.cadPackEnabled || plan.cadPrice > 0,
-    !plan.cadPackEnabled || Boolean(plan.cadUrl),
+    !plan.cadPackEnabled || Boolean(plan.gumroadCadUrl || plan.cadUrl),
     Boolean(plan.seoTitle),
     Boolean(plan.metaDescription),
     Boolean(plan.focusKeyword),
@@ -50,8 +50,8 @@ export function getMissingItems(plan: Plan) {
   if (!plan.mainImage) missing.push("image");
   if (!plan.seoTitle) missing.push("SEO title");
   if (!plan.metaDescription) missing.push("meta description");
-  if (plan.premiumPackEnabled && !plan.premiumUrl) missing.push("premium link");
-  if (plan.cadPackEnabled && !plan.cadUrl) missing.push("CAD/Revit link");
+  if (plan.premiumPackEnabled && !(plan.gumroadPremiumUrl || plan.premiumUrl)) missing.push("premium link");
+  if (plan.cadPackEnabled && !(plan.gumroadCadUrl || plan.cadUrl)) missing.push("CAD/Revit link");
   if (plan.premiumPackEnabled && !plan.premiumPrice) missing.push("premium price");
   if (plan.freePackEnabled && !plan.freePdfUrl) missing.push("free PDF");
   if (!plan.mainImageAlt) missing.push("alt text");

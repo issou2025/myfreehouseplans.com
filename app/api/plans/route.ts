@@ -20,6 +20,8 @@ const urlFields = [
   "freePdfUrl",
   "premiumUrl",
   "cadUrl",
+  "gumroadPremiumUrl",
+  "gumroadCadUrl",
   "premiumPdfUrl",
   "premiumZipUrl",
   "dwgFileUrl",

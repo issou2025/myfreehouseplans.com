@@ -67,6 +67,8 @@ export type Plan = {
   freePdfUrl: string;
   premiumUrl: string;
   cadUrl: string;
+  gumroadPremiumUrl?: string;
+  gumroadCadUrl?: string;
   premiumPdfUrl?: string;
   premiumZipUrl?: string;
   dwgFileUrl?: string;

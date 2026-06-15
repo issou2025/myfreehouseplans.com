@@ -1,8 +1,9 @@
 import Link from "next/link";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { isExternalUrl } from "@/lib/payments";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "rel" | "download"> & {
   href?: string;
   variant?: "primary" | "secondary" | "outline" | "ghost" | "danger" | "premium";
   children: ReactNode;
@@ -21,8 +22,18 @@ export function Button({ className, variant = "primary", href, children, ...prop
   const classes = cn("focus-ring inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-center text-sm font-bold transition duration-300 hover:-translate-y-0.5 active:translate-y-0", variants[variant], className);
 
   if (href) {
+    const { disabled: _disabled, type: _type, target, rel, download, ...linkProps } = props;
+    const anchorProps = linkProps as AnchorHTMLAttributes<HTMLAnchorElement>;
+    if (isExternalUrl(href)) {
+      return (
+        <a href={href} className={classes} target={target ?? "_blank"} rel={rel ?? "noopener noreferrer"} download={download} {...anchorProps}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} {...anchorProps}>
         {children}
       </Link>
     );

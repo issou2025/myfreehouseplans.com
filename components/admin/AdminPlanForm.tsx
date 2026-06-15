@@ -15,6 +15,7 @@ import { getPlanSeoScore, getReadinessScore } from "@/lib/adminMetrics";
 import { getStoredPlans, mergePlans, upsertStoredPlan } from "@/lib/localPlanStore";
 import { mockCategories } from "@/lib/mockCategories";
 import { mockPlans } from "@/lib/mockPlans";
+import { isGumroadUrl } from "@/lib/payments";
 import { calculatePriorityScore, calculateSmartScore } from "@/lib/planRanking";
 import { generatePlanReference, getReferenceYear, isReferenceUnique, normalizePlanReference } from "@/lib/planReferences";
 import { slugify } from "@/lib/slug";
@@ -102,6 +103,8 @@ function createBlankPlan(existingPlans: Plan[]): Plan {
     freePdfUrl: "",
     premiumUrl: "",
     cadUrl: "",
+    gumroadPremiumUrl: "",
+    gumroadCadUrl: "",
     premiumPdfUrl: "",
     premiumZipUrl: "",
     dwgFileUrl: "",
@@ -244,8 +247,10 @@ export function AdminPlanForm({ plan, planId }: { plan?: Plan; planId?: string }
       reference: normalizedReference,
       status: nextStatus,
       publishedAt: nextStatus === "Published" ? new Date().toISOString().slice(0, 10) : form.publishedAt,
-      premiumUrl: form.premiumUrl || form.premiumPdfUrl || "",
-      cadUrl: form.cadUrl || form.cadZipUrl || "",
+      gumroadPremiumUrl: form.gumroadPremiumUrl || (isGumroadUrl(form.premiumUrl) ? form.premiumUrl : ""),
+      gumroadCadUrl: form.gumroadCadUrl || (isGumroadUrl(form.cadUrl) ? form.cadUrl : ""),
+      premiumUrl: form.gumroadPremiumUrl || form.premiumUrl || "",
+      cadUrl: form.gumroadCadUrl || form.cadUrl || "",
       metaDescription: form.seoDescription,
       badges: [
         ...(form.freePackEnabled ? ["Free Preview"] : []),
@@ -382,13 +387,15 @@ export function AdminPlanForm({ plan, planId }: { plan?: Plan; planId?: string }
             <Toggle label="Enable Premium PDF Pack" checked={form.premiumPackEnabled} onChange={(checked) => setField("premiumPackEnabled", checked)} />
             <Field label="Premium price"><Input type="number" value={form.premiumPrice} onChange={(event) => setField("premiumPrice", Number(event.target.value))} /></Field>
             <AdminFileUpload label="Upload Premium PDF or ZIP" accept=".pdf,.zip" value={form.premiumPdfUrl || form.premiumZipUrl} onUploaded={(files) => { setUpload(files[0]?.name.toLowerCase().endsWith(".zip") ? "premiumZipUrl" : "premiumPdfUrl", files); }} />
-            <Field label="Payment link placeholder" helper="Use this field for Gumroad, payment link, or future checkout URL."><Input value={form.premiumUrl} onChange={(event) => setField("premiumUrl", event.target.value)} /></Field>
+            <Field label="Gumroad Premium checkout link" helper="Paste the full Gumroad product URL, for example https://yourname.gumroad.com/l/plan-premium."><Input placeholder="https://yourname.gumroad.com/l/plan-premium" value={form.gumroadPremiumUrl ?? ""} onChange={(event) => setField("gumroadPremiumUrl", event.target.value)} /></Field>
+            {!quickMode ? <Field label="Backup checkout link" helper="Optional: another payment URL if you do not want to use Gumroad for this pack."><Input value={form.premiumUrl} onChange={(event) => setField("premiumUrl", event.target.value)} /></Field> : null}
           </Card>
           <Card className="grid gap-4 border-violet-100 bg-violet-50/50 p-4">
             <Toggle label="Enable CAD/Revit Pack" checked={form.cadPackEnabled} onChange={(checked) => setField("cadPackEnabled", checked)} />
             <Field label="CAD/Revit price"><Input type="number" value={form.cadPrice} onChange={(event) => setField("cadPrice", Number(event.target.value))} /></Field>
             <AdminFileUpload label="Upload DWG / Revit / IFC / ZIP" accept=".dwg,.dxf,.rvt,.ifc,.zip" value={form.cadZipUrl || form.dwgFileUrl || form.revitFileUrl || form.ifcFileUrl} onUploaded={(files) => setUpload("cadZipUrl", files)} />
-            <Field label="Payment link placeholder"><Input value={form.cadUrl} onChange={(event) => setField("cadUrl", event.target.value)} /></Field>
+            <Field label="Gumroad CAD/Revit checkout link" helper="Paste the full Gumroad URL for the professional file pack."><Input placeholder="https://yourname.gumroad.com/l/plan-cad-revit" value={form.gumroadCadUrl ?? ""} onChange={(event) => setField("gumroadCadUrl", event.target.value)} /></Field>
+            {!quickMode ? <Field label="Backup checkout link"><Input value={form.cadUrl} onChange={(event) => setField("cadUrl", event.target.value)} /></Field> : null}
           </Card>
         </div>
       </Section>

@@ -17,6 +17,7 @@ import { Card } from "@/components/ui/Card";
 import { readPlans } from "@/lib/planData";
 import { getPlanPreviewImages } from "@/lib/planImages";
 import { isPlanFileAvailable } from "@/lib/planFileAvailability";
+import { getPlanCheckoutUrl, getRequestHref, isGumroadUrl } from "@/lib/payments";
 import { formatAreaDual, formatPlotDual } from "@/lib/unitFormat";
 
 export const dynamic = "force-dynamic";
@@ -42,23 +43,32 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
     ["Style", plan.architecturalStyle, Sparkles],
     ["Files", plan.badges.filter((b) => ["DWG", "Revit", "IFC", "Premium PDF"].includes(b)).join(", "), FileText]
   ] as const;
-  const jsonLd = { "@context": "https://schema.org", "@type": "Product", name: plan.title, description: plan.shortDescription, sku: plan.reference, offers: { "@type": "Offer", price: plan.premiumPrice, priceCurrency: "USD" } };
-  const fileAvailability = [
-    { label: "Free PDF", value: plan.freePdfUrl, icon: FileText },
-    { label: "Premium PDF", value: plan.premiumPdfUrl ?? plan.premiumUrl, icon: FileText },
-    { label: "Premium ZIP", value: plan.premiumZipUrl, icon: FileArchive },
-    { label: "DWG", value: plan.dwgFileUrl, icon: FileText },
-    { label: "Revit RVT", value: plan.revitFileUrl, icon: FileText },
-    { label: "IFC", value: plan.ifcFileUrl, icon: FileText },
-    { label: "CAD/Revit ZIP", value: plan.cadZipUrl ?? plan.cadUrl, icon: FileArchive }
-  ].filter((item) => isPlanFileAvailable(item.value));
-  const requestHref = (pack: string) => `/contact?plan=${encodeURIComponent(plan.reference)}&title=${encodeURIComponent(plan.title)}&pack=${encodeURIComponent(pack)}`;
   const freePdfUrl = isPlanFileAvailable(plan.freePdfUrl) ? plan.freePdfUrl : "";
-  const premiumUrl = [plan.premiumPdfUrl, plan.premiumZipUrl, plan.premiumUrl].find(isPlanFileAvailable) ?? "";
-  const cadUrl = [plan.cadZipUrl, plan.cadUrl, plan.dwgFileUrl, plan.revitFileUrl, plan.ifcFileUrl].find(isPlanFileAvailable) ?? "";
+  const premiumCheckoutUrl = getPlanCheckoutUrl(plan, "premium");
+  const cadCheckoutUrl = getPlanCheckoutUrl(plan, "cad");
+  const requestHref = (pack: string) => getRequestHref(plan, pack);
   const freePdfHref = freePdfUrl || requestHref("Free PDF");
-  const premiumHref = premiumUrl || requestHref("Premium PDF");
-  const cadHref = cadUrl || requestHref("CAD/Revit pack");
+  const premiumHref = premiumCheckoutUrl || requestHref("Premium PDF");
+  const cadHref = cadCheckoutUrl || requestHref("CAD/Revit pack");
+  const premiumHasFiles = [plan.premiumPdfUrl, plan.premiumZipUrl].some(isPlanFileAvailable);
+  const cadHasFiles = [plan.cadZipUrl, plan.dwgFileUrl, plan.revitFileUrl, plan.ifcFileUrl].some(isPlanFileAvailable);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: plan.title,
+    description: plan.shortDescription,
+    sku: plan.reference,
+    offers: { "@type": "Offer", price: plan.premiumPrice, priceCurrency: plan.currency ?? "USD", url: premiumCheckoutUrl || undefined }
+  };
+  const fileAvailability = [
+    { label: "Free PDF", value: plan.freePdfUrl, icon: FileText, kind: "free" as const, available: Boolean(freePdfUrl), href: freePdfHref, button: freePdfUrl ? "Open free preview" : "Request free PDF", note: freePdfUrl || "Request this preview from support." },
+    { label: "Premium PDF", value: plan.premiumPdfUrl, icon: FileText, kind: "premium" as const, available: premiumHasFiles || Boolean(premiumCheckoutUrl), href: premiumHref, button: premiumCheckoutUrl ? "Buy Premium PDF" : "Request Premium PDF", note: premiumCheckoutUrl ? "Secure Gumroad checkout before delivery." : "Available on request." },
+    { label: "Premium ZIP", value: plan.premiumZipUrl, icon: FileArchive, kind: "premium" as const, available: premiumHasFiles || Boolean(premiumCheckoutUrl), href: premiumHref, button: premiumCheckoutUrl ? "Buy Premium Pack" : "Request Premium Pack", note: premiumCheckoutUrl ? "Delivered after secure checkout." : "Available on request." },
+    { label: "DWG", value: plan.dwgFileUrl, icon: FileText, kind: "cad" as const, available: cadHasFiles || Boolean(cadCheckoutUrl), href: cadHref, button: cadCheckoutUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit", note: cadCheckoutUrl ? "Included in the professional checkout." : "Available on request." },
+    { label: "Revit RVT", value: plan.revitFileUrl, icon: FileText, kind: "cad" as const, available: cadHasFiles || Boolean(cadCheckoutUrl), href: cadHref, button: cadCheckoutUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit", note: cadCheckoutUrl ? "Included in the professional checkout." : "Available on request." },
+    { label: "IFC", value: plan.ifcFileUrl, icon: FileText, kind: "cad" as const, available: cadHasFiles || Boolean(cadCheckoutUrl), href: cadHref, button: cadCheckoutUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit", note: cadCheckoutUrl ? "Included in the professional checkout." : "Available on request." },
+    { label: "CAD/Revit ZIP", value: plan.cadZipUrl, icon: FileArchive, kind: "cad" as const, available: cadHasFiles || Boolean(cadCheckoutUrl), href: cadHref, button: cadCheckoutUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit", note: cadCheckoutUrl ? "Delivered after secure checkout." : "Available on request." }
+  ].filter((item) => item.available && (item.kind !== "free" || isPlanFileAvailable(item.value)));
 
   return (
     <>
@@ -77,7 +87,7 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
             <p className="mt-2 text-sm font-bold text-sky-600">{plan.reference}</p>
             <p className="mt-4 leading-7 text-slate-600">{plan.shortDescription}</p>
             <div className="mt-5 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2">{details.map(([k, v, Icon]) => <div key={String(k)} className="min-w-0 rounded-2xl border border-slate-100 bg-slate-50 p-3"><Icon className="mb-2 h-4 w-4 text-sky-500" /><p className="text-xs text-slate-500">{k}</p><p className="safe-break font-bold text-slate-950">{v}</p></div>)}</div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2"><Button href={freePdfHref} className="w-full">{freePdfUrl ? "Download Free PDF" : "Request Free PDF"}</Button><Button href={premiumHref} className="w-full" variant="premium">{premiumUrl ? "Buy Premium PDF" : "Request Premium PDF"}</Button><Button href={cadHref} className="w-full" variant="secondary">{cadUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit Pack"}</Button><Button href={`/contact?plan=${encodeURIComponent(plan.reference)}&title=${encodeURIComponent(plan.title)}`} className="w-full" variant="outline">Request Modification</Button></div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2"><Button href={freePdfHref} className="w-full">{freePdfUrl ? "Download Free PDF" : "Request Free PDF"}</Button><Button href={premiumHref} className={`w-full ${isGumroadUrl(premiumHref) ? "gumroad-button" : ""}`} variant="premium">{premiumCheckoutUrl ? "Buy Premium PDF" : "Request Premium PDF"}</Button><Button href={cadHref} className={`w-full ${isGumroadUrl(cadHref) ? "gumroad-button" : ""}`} variant="secondary">{cadCheckoutUrl ? "Buy CAD/Revit Pack" : "Request CAD/Revit Pack"}</Button><Button href={`/contact?plan=${encodeURIComponent(plan.reference)}&title=${encodeURIComponent(plan.title)}`} className="w-full" variant="outline">Request Modification</Button></div>
             <p className="mt-4 flex gap-2 rounded-2xl bg-emerald-50 p-3 text-sm font-semibold text-emerald-700"><ShieldCheck className="h-4 w-4" /> Local professional review required before construction.</p>
           </Card>
             </div>
@@ -94,7 +104,7 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {fileAvailability.map((file) => {
               const Icon = file.icon;
-              return <Card key={file.label} className="p-4"><Icon className="h-5 w-5 text-sky-600" /><p className="mt-3 font-black text-slate-950">{file.label}</p><p className="safe-break mt-1 text-xs text-slate-500">{file.value}</p><Button href={file.value as string} variant="outline" className="mt-4 w-full">Open file</Button></Card>;
+              return <Card key={file.label} className="p-4"><Icon className="h-5 w-5 text-sky-600" /><p className="mt-3 font-black text-slate-950">{file.label}</p><p className="safe-break mt-1 text-xs text-slate-500">{file.note}</p><Button href={file.href} variant="outline" className={`mt-4 w-full ${isGumroadUrl(file.href) ? "gumroad-button" : ""}`}>{file.button}</Button></Card>;
             })}
           </div>
         </section>
@@ -112,7 +122,7 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
         <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-16px_50px_rgba(15,23,42,0.16)] backdrop-blur lg:hidden">
           <div className="mx-auto grid max-w-md grid-cols-2 gap-2">
             <Button href={freePdfHref} className="w-full">{freePdfUrl ? "Free PDF" : "Request PDF"}</Button>
-            <Button href={premiumHref} className="w-full" variant="premium">{premiumUrl ? "Buy Pack" : "Request Pack"}</Button>
+            <Button href={premiumHref} className={`w-full ${isGumroadUrl(premiumHref) ? "gumroad-button" : ""}`} variant="premium">{premiumCheckoutUrl ? "Buy Pack" : "Request Pack"}</Button>
           </div>
         </div>
       </main>

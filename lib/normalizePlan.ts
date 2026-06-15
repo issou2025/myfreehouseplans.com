@@ -41,6 +41,8 @@ export function normalizePlan(plan: Plan): Plan {
     freePdfUrl: plan.freePdfUrl ?? "",
     premiumUrl: plan.premiumUrl ?? plan.premiumPdfUrl ?? "",
     cadUrl: plan.cadUrl ?? plan.cadZipUrl ?? "",
+    gumroadPremiumUrl: plan.gumroadPremiumUrl ?? "",
+    gumroadCadUrl: plan.gumroadCadUrl ?? "",
     premiumPdfUrl: plan.premiumPdfUrl ?? plan.premiumUrl,
     premiumPrice: plan.premiumPrice ?? 0,
     cadPrice: plan.cadPrice ?? 0,
