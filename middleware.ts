@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getAdminConfigIssue, getAdminConfigMessage } from "@/lib/adminConfig";
 
 const blockedBotPatterns = [
   /ahrefs/i,
@@ -230,18 +231,22 @@ function isSameOriginWrite(request: NextRequest) {
   const referer = request.headers.get("referer");
   const authorization = request.headers.get("authorization");
   const source = origin || referer;
-  if (!source) return Boolean(authorization?.startsWith("Basic "));
+  if (!source) return request.nextUrl.pathname === "/api/admin/login" || Boolean(authorization?.startsWith("Basic "));
 
   try {
     const sourceHost = new URL(source).host.toLowerCase();
     const trustedHosts = new Set<string>();
     const addHost = (host: string | null | undefined) => {
       const normalized = host?.split(",")[0]?.trim().toLowerCase();
-      if (normalized) trustedHosts.add(normalized);
+      if (!normalized) return;
+      trustedHosts.add(normalized);
+      if (normalized.startsWith("www.")) trustedHosts.add(normalized.slice(4));
+      else trustedHosts.add(`www.${normalized}`);
     };
 
     addHost(request.nextUrl.host);
     addHost(request.headers.get("host"));
+    addHost(request.headers.get("x-forwarded-host"));
 
     if (process.env.NEXT_PUBLIC_SITE_URL) {
       addHost(new URL(process.env.NEXT_PUBLIC_SITE_URL).host);
@@ -265,12 +270,7 @@ function isPayloadTooLarge(request: NextRequest) {
 }
 
 function hasWeakProductionSecrets() {
-  if (process.env.NODE_ENV !== "production") return false;
-  return !process.env.ADMIN_PASSWORD
-    || process.env.ADMIN_PASSWORD.length < 16
-    || !process.env.ADMIN_SESSION_SECRET
-    || process.env.ADMIN_SESSION_SECRET.length < 32
-    || process.env.ADMIN_SESSION_SECRET === process.env.ADMIN_PASSWORD;
+  return Boolean(getAdminConfigIssue());
 }
 
 function shouldSkipSecurityHeaders(pathname: string) {
@@ -299,7 +299,7 @@ export async function middleware(request: NextRequest) {
 
   if (isProtectedPath(request)) {
     if (hasWeakProductionSecrets()) {
-      return new NextResponse("Strong admin credentials and a separate session secret are required in production.", {
+      return new NextResponse(`Admin configuration error: ${getAdminConfigMessage(getAdminConfigIssue())}`, {
         status: 503,
         headers: {
           "Cache-Control": "no-store",

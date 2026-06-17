@@ -1,6 +1,7 @@
 import { LockKeyhole, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { getAdminConfigIssue, getAdminConfigMessage } from "@/lib/adminConfig";
 
 type AdminLoginPageProps = {
   searchParams?: Promise<{ error?: string; next?: string }>;
@@ -18,6 +19,8 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
   const params = await searchParams;
   const nextPath = params?.next?.startsWith("/") ? params.next : "/admin";
   const hasError = params?.error === "1";
+  const configIssue = getAdminConfigIssue();
+  const configMessage = getAdminConfigMessage(configIssue);
 
   return (
     <main className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900">
@@ -49,8 +52,13 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
                 Username ou mot de passe incorrect.
               </p>
             ) : null}
+            {configMessage ? (
+              <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-800">
+                Configuration admin incomplete: {configMessage}
+              </p>
+            ) : null}
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" disabled={Boolean(configIssue)}>
               <LockKeyhole className="h-4 w-4" />
               Se connecter
             </Button>

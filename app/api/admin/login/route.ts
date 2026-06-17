@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { NextResponse } from "next/server";
+import { getAdminConfigIssue } from "@/lib/adminConfig";
 import { getClientKey, rateLimit } from "@/lib/security";
 
 export const runtime = "nodejs";
@@ -42,6 +43,13 @@ export async function POST(request: Request) {
 
   const expectedUsername = process.env.ADMIN_USERNAME || "admin";
   const expectedPassword = process.env.ADMIN_PASSWORD;
+  const configIssue = getAdminConfigIssue();
+
+  if (configIssue) {
+    const url = new URL("/admin/login", request.url);
+    url.searchParams.set("next", nextPath);
+    return NextResponse.redirect(url, 303);
+  }
 
   if (username.length > 200 || password.length > 500 || !expectedPassword || !constantTimeEqual(username, expectedUsername) || !constantTimeEqual(password, expectedPassword)) {
     const url = new URL("/admin/login", request.url);
