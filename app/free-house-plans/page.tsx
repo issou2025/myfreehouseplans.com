@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Download free house plan previews and explore premium construction packages."
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function FreePlansPage() {
   const plans = sortPlansForCatalog(await readPlans()).filter((plan) => plan.freePackEnabled);

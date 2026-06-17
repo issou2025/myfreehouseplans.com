@@ -14,7 +14,7 @@ import { sortPlansForCatalog } from "@/lib/planRanking";
 
 export const metadata: Metadata = { title: "Premium House Plans | myfreehouseplans.com", description: "Explore complete premium PDF house plan packages for serious project review." };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function PremiumPlansPage() {
   const plans = sortPlansForCatalog(await readPlans()).filter((plan) => plan.premiumPackEnabled);

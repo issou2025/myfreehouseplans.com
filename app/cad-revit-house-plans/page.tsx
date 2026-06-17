@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Browse editable DWG, Revit and IFC house plan packages for architects, engineers and builders."
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function CadRevitPage() {
   const plans = sortPlansForCatalog(await readPlans()).filter((plan) => plan.cadPackEnabled);

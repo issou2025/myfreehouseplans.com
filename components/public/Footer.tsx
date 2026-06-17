@@ -14,7 +14,7 @@ const groups = [
 function GroupTitle({ title, icon: Icon }: { title: string; icon: LucideIcon }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="grid h-8 w-8 place-items-center rounded-xl bg-white/10 text-sky-300"><Icon className="h-4 w-4" /></span>
+      <span className="grid h-8 w-8 place-items-center rounded-md bg-white/10 text-sky-300"><Icon className="h-4 w-4" /></span>
       <p className="font-bold text-white">{title}</p>
     </div>
   );
@@ -25,12 +25,12 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-slate-950 text-white">
       <div className="absolute inset-0 subtle-grid opacity-20" />
       <div className="section-shell relative pt-10">
-        <div className="grid gap-5 rounded-[1.7rem] border border-white/10 bg-gradient-to-r from-sky-500/20 via-white/[0.07] to-violet-500/15 p-5 shadow-2xl backdrop-blur-xl sm:p-7 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="grid gap-5 rounded-lg border border-white/10 bg-white/[0.07] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-7 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="flex gap-4">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white text-sky-600"><MapPinned className="h-5 w-5" /></span>
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-md bg-white text-sky-600"><MapPinned className="h-5 w-5" /></span>
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-300">Not sure where to begin?</p>
-              <h2 className="mt-2 text-2xl font-black">Start with your land, rooms and budget.</h2>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-300">Not sure where to begin?</p>
+              <h2 className="mt-2 text-2xl font-extrabold">Start with your land, rooms and budget.</h2>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">The plan finder narrows the catalog, then the plot checker tests the strongest matches.</p>
             </div>
           </div>
@@ -43,13 +43,13 @@ export function Footer() {
       <div className="section-shell relative grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-7">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-slate-950 shadow-xl shadow-sky-500/10"><Sparkles className="h-5 w-5 text-sky-500" /></span>
-            <p className="safe-break text-xl font-black min-[380px]:text-2xl">myfreehouseplans<span className="text-sky-400">.com</span></p>
+            <span className="grid h-11 w-11 place-items-center rounded-lg bg-white text-slate-950 shadow-xl shadow-sky-500/10"><Sparkles className="h-5 w-5 text-sky-500" /></span>
+            <p className="safe-break text-xl font-extrabold min-[380px]:text-2xl">myfreehouseplans<span className="text-sky-400">.com</span></p>
           </div>
           <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">
             Explore free house plan previews, premium PDF packs, and editable CAD/Revit files with clear links to tools, guides, and custom requests.
           </p>
-          <div className="mt-6 flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-6 text-slate-300 backdrop-blur">
+          <div className="mt-6 flex gap-3 rounded-lg border border-white/10 bg-white/5 p-4 text-sm leading-6 text-slate-300 backdrop-blur">
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
             <span>Always review and adapt plans with a local architect, engineer or qualified professional before construction.</span>
           </div>

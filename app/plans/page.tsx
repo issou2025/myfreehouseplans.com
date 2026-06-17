@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Browse modern house plans by bedrooms, area, plot size, style and file format."
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function PlansPage() {
   const rankedPlans = sortPlansForCatalog(await readPlans());
@@ -24,7 +24,7 @@ export default async function PlansPage() {
       <Header />
       <main>
         <PublicPageHero
-          eyebrow="Smart plan catalog"
+          eyebrow="House plan catalog"
           title="Find a house plan that works beyond the first impression."
           description="Search by rooms, area, plot dimensions, style and file format. Compare up to three plans and test the strongest options against your land."
           icon={SearchCheck}
@@ -37,7 +37,7 @@ export default async function PlansPage() {
         />
         <ProjectJourney current="discover" />
         <section id="catalog" className="section-shell scroll-mt-32 py-10">
-          <Suspense fallback={<div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm font-semibold text-slate-600 shadow-sm">Loading smart catalog...</div>}>
+          <Suspense fallback={<div className="rounded-lg border border-slate-200 bg-white p-6 text-sm font-semibold text-slate-600 shadow-sm">Loading catalog...</div>}>
             <PlanCatalogClient plans={rankedPlans} />
           </Suspense>
         </section>

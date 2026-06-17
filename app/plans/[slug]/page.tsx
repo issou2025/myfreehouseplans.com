@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { Bath, BedDouble, FileArchive, FileText, Home, Layers, Ruler, ShieldCheck, Sparkles } from "lucide-react";
 import { PackComparison } from "@/components/public/PackComparison";
@@ -20,7 +21,12 @@ import { isPlanFileAvailable } from "@/lib/planFileAvailability";
 import { getPlanCheckoutUrl, getRequestHref, isGumroadUrl } from "@/lib/payments";
 import { formatAreaDual, formatPlotDual } from "@/lib/unitFormat";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const plans = await readPlans();
+  return plans.filter((plan) => plan.status === "Published").map((plan) => ({ slug: plan.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -50,6 +56,7 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
   const freePdfHref = freePdfUrl || requestHref("Free PDF");
   const premiumHref = premiumCheckoutUrl || requestHref("Premium PDF");
   const cadHref = cadCheckoutUrl || requestHref("CAD/Revit pack");
+  const hasGumroadCheckout = isGumroadUrl(premiumHref) || isGumroadUrl(cadHref);
   const premiumHasFiles = [plan.premiumPdfUrl, plan.premiumZipUrl].some(isPlanFileAvailable);
   const cadHasFiles = [plan.cadZipUrl, plan.dwgFileUrl, plan.revitFileUrl, plan.ifcFileUrl].some(isPlanFileAvailable);
   const jsonLd = {
@@ -74,6 +81,7 @@ export default async function PlanDetailPage({ params }: { params: Promise<{ slu
     <>
       <Header />
       <main>
+        {hasGumroadCheckout ? <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" /> : null}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <section className="relative overflow-hidden bg-slate-950 py-5 text-white sm:py-10">
           <div className="absolute inset-0 subtle-grid opacity-20" />

@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Eye } from "lucide-react";
 import type { PlanImage } from "@/types/plan";
-import { InteractiveImagePreview } from "@/components/public/InteractiveImagePreview";
+
+const InteractiveImagePreview = dynamic(
+  () => import("@/components/public/InteractiveImagePreview").then((module) => module.InteractiveImagePreview),
+  { ssr: false }
+);
 
 export function PlanImageGallery({
   images,
