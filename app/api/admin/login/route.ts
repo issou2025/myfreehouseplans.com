@@ -13,6 +13,22 @@ function safeNextPath(value: FormDataEntryValue | null) {
   return value;
 }
 
+function loginRedirectLocation(nextPath: string, hasError = false) {
+  const params = new URLSearchParams();
+  if (hasError) params.set("error", "1");
+  params.set("next", nextPath);
+  return `/admin/login?${params.toString()}`;
+}
+
+function redirectUrl(request: Request, path: string) {
+  const requestUrl = new URL(request.url);
+  const forwardedProto = request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim();
+  const forwardedHost = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  const host = forwardedHost || request.headers.get("host") || requestUrl.host;
+  const protocol = forwardedProto || requestUrl.protocol.replace(":", "");
+  return new URL(path, `${protocol}://${host}`);
+}
+
 function signAdminSession(expiresAt: string, secret: string) {
   return crypto.createHmac("sha256", secret).update(`admin:${expiresAt}`).digest("base64url");
 }
@@ -46,22 +62,17 @@ export async function POST(request: Request) {
   const configIssue = getAdminConfigIssue();
 
   if (configIssue) {
-    const url = new URL("/admin/login", request.url);
-    url.searchParams.set("next", nextPath);
-    return NextResponse.redirect(url, 303);
+    return NextResponse.redirect(redirectUrl(request, loginRedirectLocation(nextPath)), 303);
   }
 
   if (username.length > 200 || password.length > 500 || !expectedPassword || !constantTimeEqual(username, expectedUsername) || !constantTimeEqual(password, expectedPassword)) {
-    const url = new URL("/admin/login", request.url);
-    url.searchParams.set("error", "1");
-    url.searchParams.set("next", nextPath);
-    return NextResponse.redirect(url, 303);
+    return NextResponse.redirect(redirectUrl(request, loginRedirectLocation(nextPath, true)), 303);
   }
 
   const expiresAt = String(Date.now() + SESSION_MAX_AGE_SECONDS * 1000);
   const secret = process.env.ADMIN_SESSION_SECRET || expectedPassword;
   const token = `${expiresAt}.${signAdminSession(expiresAt, secret)}`;
-  const response = NextResponse.redirect(new URL(nextPath, request.url), 303);
+  const response = NextResponse.redirect(redirectUrl(request, nextPath), 303);
   response.headers.set("Cache-Control", "no-store");
   response.headers.set("X-Robots-Tag", "noindex, nofollow");
 

@@ -80,7 +80,7 @@ function unauthorizedResponse(request: NextRequest) {
 
   const loginUrl = new URL("/admin/login", request.url);
   loginUrl.searchParams.set("next", `${request.nextUrl.pathname}${request.nextUrl.search}`);
-  return NextResponse.redirect(loginUrl);
+  return NextResponse.rewrite(loginUrl);
 }
 
 function forbiddenResponse(message = "Forbidden.") {

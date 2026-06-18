@@ -1,11 +1,15 @@
 export type AdminConfigIssue = "missing-password" | "weak-password" | "missing-session-secret" | "weak-session-secret" | "shared-session-secret";
 
+function requiresStrongAdminSecrets() {
+  return process.env.VERCEL === "1" || process.env.RENDER === "true" || process.env.REQUIRE_DATABASE === "true";
+}
+
 export function getAdminConfigIssue(): AdminConfigIssue | null {
   const password = process.env.ADMIN_PASSWORD;
   const secret = process.env.ADMIN_SESSION_SECRET;
 
   if (!password) return "missing-password";
-  if (process.env.NODE_ENV !== "production") return null;
+  if (!requiresStrongAdminSecrets()) return null;
   if (password.length < 16) return "weak-password";
   if (!secret) return "missing-session-secret";
   if (secret.length < 32) return "weak-session-secret";
