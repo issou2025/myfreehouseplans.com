@@ -12,7 +12,7 @@ import { TechnicalIntelligence } from "@/components/public/TechnicalIntelligence
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { mockBlogPosts } from "@/lib/mockBlogPosts";
-import { mockCategories } from "@/lib/mockCategories";
+import { readCategories } from "@/lib/categoryData";
 import { readPlans } from "@/lib/planData";
 import { sortPlansForHomepage } from "@/lib/planRanking";
 
@@ -33,7 +33,10 @@ const assuranceLinks: Array<{ title: string; copy: string; icon: LucideIcon; hre
 ];
 
 export default async function HomePage() {
-  const homepagePlans = sortPlansForHomepage(await readPlans());
+  const [categories, plans] = await Promise.all([readCategories(), readPlans()]);
+  const homepagePlans = sortPlansForHomepage(plans);
+  const featuredCategories = categories.filter((category) => category.visible !== false && category.featured).slice(0, 4);
+  const homepageCategories = featuredCategories.length ? featuredCategories : categories.filter((category) => category.visible !== false).slice(0, 4);
   return (
     <>
       <Header />
@@ -43,7 +46,7 @@ export default async function HomePage() {
         <TechnicalIntelligence />
         <section className="section-shell py-12 sm:py-20">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"><div className="min-w-0"><p className="section-kicker">Explore by lifestyle</p><h2 className="section-title">Find the kind of home you have in mind</h2><p className="mt-2 max-w-2xl text-slate-600">Browse practical collections by style, size, room count and construction budget.</p></div><Button href="/plans" variant="outline" className="w-full sm:w-auto">Explore all plans <ArrowRight className="h-4 w-4" /></Button></div>
-          <div className="mt-7 grid gap-4 min-[520px]:grid-cols-2 lg:grid-cols-4">{mockCategories.slice(0, 4).map((category) => <CategoryCard key={category.id} category={category} />)}</div>
+          <div className="mt-7 grid gap-4 min-[520px]:grid-cols-2 lg:grid-cols-4">{homepageCategories.map((category) => <CategoryCard key={category.id} category={category} />)}</div>
         </section>
         <section className="border-y border-white/80 bg-white/55 backdrop-blur">
           <div className="section-shell py-10 sm:py-20"><PlotCheckerMock /></div>

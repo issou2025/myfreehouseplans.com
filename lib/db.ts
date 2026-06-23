@@ -68,7 +68,25 @@ export async function ensureDatabaseSchema() {
     );
   `);
 
+  await pool.query(`
+    create table if not exists app_categories (
+      id text primary key,
+      slug text not null unique,
+      data jsonb not null,
+      created_at timestamptz not null default now(),
+      updated_at timestamptz not null default now()
+    );
+  `);
+
+  await pool.query(`
+    create table if not exists app_deleted_categories (
+      id text primary key,
+      deleted_at timestamptz not null default now()
+    );
+  `);
+
   await pool.query("create index if not exists app_plans_status_idx on app_plans(status);");
   await pool.query("create index if not exists app_messages_status_idx on app_messages(status);");
+  await pool.query("create index if not exists app_categories_slug_idx on app_categories(slug);");
   return true;
 }

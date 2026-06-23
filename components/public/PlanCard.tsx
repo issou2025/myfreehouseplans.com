@@ -79,7 +79,7 @@ export function PlanCard({
         ) : null}
       </div>
     </Card>
-    <InteractiveImagePreview images={previewImages} isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
+    {isPreviewOpen ? <InteractiveImagePreview images={previewImages} isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} /> : null}
     </>
   );
 }

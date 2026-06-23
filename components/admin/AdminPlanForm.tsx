@@ -160,6 +160,7 @@ function readinessLabel(score: number) {
 
 export function AdminPlanForm({ plan, planId }: { plan?: Plan; planId?: string }) {
   const [allPlans, setAllPlans] = useState<Plan[]>(mockPlans);
+  const [categories, setCategories] = useState<string[]>(() => mockCategories.map((category) => category.name));
   const [form, setForm] = useState<Plan>(() => plan ? { ...plan, reference: normalizePlanReference(plan.reference) } : createBlankPlan(mockPlans));
   const [initialForm, setInitialForm] = useState<Plan>(form);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
@@ -192,7 +193,23 @@ export function AdminPlanForm({ plan, planId }: { plan?: Plan; planId?: string }
     return () => { active = false; };
   }, [plan, planId]);
 
-  const categories = useMemo(() => mockCategories.map((category) => category.name), []);
+  useEffect(() => {
+    let active = true;
+    async function loadCategories() {
+      try {
+        const response = await fetch("/api/categories", { cache: "no-store" });
+        const payload = (await response.json()) as { success?: boolean; data?: { categories?: Array<{ name?: string; visible?: boolean }> } };
+        const names = (payload.data?.categories ?? [])
+          .filter((category) => category.visible !== false && category.name)
+          .map((category) => String(category.name))
+          .sort((a, b) => a.localeCompare(b));
+        if (active && names.length) setCategories(names);
+      } catch {}
+    }
+    loadCategories();
+    return () => { active = false; };
+  }, []);
+
   const referenceIsUnique = isReferenceUnique(form.reference, allPlans, form.id);
   const normalizedReference = normalizePlanReference(form.reference);
   const readiness = getReadinessScore(form);

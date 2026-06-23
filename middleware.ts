@@ -60,6 +60,7 @@ function isProtectedPath(request: NextRequest) {
   if (pathname === "/api/admin/logout") return true;
   if (pathname === "/api/messages" && request.method !== "POST") return true;
   if (pathname === "/api/plans" && request.method !== "GET") return true;
+  if (pathname === "/api/categories" && request.method !== "GET") return true;
   if (pathname.startsWith("/api/upload")) return true;
   return false;
 }
@@ -265,6 +266,7 @@ function isPayloadTooLarge(request: NextRequest) {
   if (pathname === "/api/admin/login") return length > 16 * 1024;
   if (pathname === "/api/messages") return length > 64 * 1024;
   if (pathname === "/api/plans") return length > 2 * 1024 * 1024;
+  if (pathname === "/api/categories") return length > 256 * 1024;
   if (pathname === "/api/upload/signature") return length > 16 * 1024;
   return false;
 }
