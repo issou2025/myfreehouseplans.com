@@ -62,7 +62,7 @@ const featureOptions = ["Terrace", "Veranda", "Courtyard", "Garage", "Future ext
 const defaultFaq = [
   { question: "What is included in the free PDF?", answer: "The free PDF is a preview for first review and may be watermarked." },
   { question: "Can this plan be modified?", answer: "Yes. A local professional should adapt the plan to your land, budget and codes." },
-  { question: "Can I use this plan directly for construction?", answer: "No. It must be reviewed by a qualified local architect or engineer before construction." }
+  { question: "What professional review is required?", answer: "A qualified local architect or engineer must review and adapt the concept to the site, regulations, structure and project requirements before construction." }
 ];
 
 function createBlankPlan(existingPlans: Plan[]): Plan {

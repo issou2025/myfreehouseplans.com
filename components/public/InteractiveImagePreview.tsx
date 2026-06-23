@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Circle, ClipboardCopy, FlipHorizontal2, FlipVertical2, MousePointer2, PenTool, RotateCcw, RotateCw, Square, Trash2, Type, Undo2, X, ZoomIn, ZoomOut } from "lucide-react";
 import type { PlanImage } from "@/types/plan";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { SafeImage } from "@/components/public/SafeImage";
 
 export type InteractiveImagePreviewProps = {
   images: PlanImage[];
@@ -255,7 +255,7 @@ export function InteractiveImagePreview({ images, isOpen, initialIndex = 0, onCl
         <div className="relative min-h-0 flex-1 overflow-auto bg-[radial-gradient(circle_at_center,rgba(51,65,85,0.65),rgba(2,6,23,0.95))]">
           <div className="flex min-h-full min-w-full items-center justify-center p-8 sm:p-14">
             <div className="relative inline-block max-w-full" style={{ transform: `rotate(${rotation}deg) scaleX(${flipX ? -1 : 1}) scaleY(${flipY ? -1 : 1}) scale(${zoom})`, transition: "transform 0.3s ease" }}>
-              <Image src={activeImage.url} alt={activeImage.alt ?? activeImage.title ?? "Plan preview"} width={1600} height={1200} sizes="90vw" unoptimized className="block h-auto max-h-[56svh] w-auto max-w-full select-none object-contain shadow-2xl" draggable={false} />
+              <SafeImage src={activeImage.url} alt={activeImage.alt ?? activeImage.title ?? "Plan preview"} width={1600} height={1200} sizes="90vw" unoptimized className="block h-auto max-h-[56svh] w-auto max-w-full select-none object-contain shadow-2xl" draggable={false} />
               <svg
                 viewBox={`0 0 ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
                 preserveAspectRatio="none"
@@ -295,7 +295,7 @@ export function InteractiveImagePreview({ images, isOpen, initialIndex = 0, onCl
           <div className="mobile-scroll flex gap-2 overflow-x-auto border-t border-white/10 bg-slate-900 px-3 py-2 sm:px-4">
             {images.map((image, index) => {
               const count = annotationsByImage[image.id]?.length ?? 0;
-              return <button key={image.id} type="button" onClick={() => selectImage(index)} className={`focus-ring relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-16 sm:w-24 ${index === currentIndex ? "border-sky-400 opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Open image ${index + 1}`}><Image src={image.url} alt={image.alt ?? ""} fill sizes="96px" unoptimized className="object-cover" /><span className="absolute bottom-0 right-0 bg-slate-950/75 px-1.5 py-0.5 text-[10px] font-bold text-white">{count ? `${count} notes` : index + 1}</span></button>;
+              return <button key={image.id} type="button" onClick={() => selectImage(index)} className={`focus-ring relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-16 sm:w-24 ${index === currentIndex ? "border-sky-400 opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Open image ${index + 1}`}><SafeImage src={image.url} alt={image.alt ?? ""} fill sizes="96px" unoptimized className="object-cover" /><span className="absolute bottom-0 right-0 bg-slate-950/75 px-1.5 py-0.5 text-[10px] font-bold text-white">{count ? `${count} notes` : index + 1}</span></button>;
             })}
           </div>
         ) : null}

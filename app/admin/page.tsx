@@ -1,4 +1,4 @@
-import { BookOpen, Download, Eye, FileText, Folder, Globe2, Home, Image, ListOrdered, Mail, Megaphone, MousePointerClick, PencilLine, SearchCheck, Star, TrendingUp } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle2, Cloud, Database, Download, Eye, FileText, Folder, Globe2, Home, Image, KeyRound, ListOrdered, Mail, Megaphone, MousePointerClick, PencilLine, SearchCheck, Star, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { AdminCommandCenter, AdminOpsStrip } from "@/components/admin/AdminCommandCenter";
 import { AdminMessageTable } from "@/components/admin/AdminMessageTable";
@@ -11,6 +11,7 @@ import { AdminStatCard } from "@/components/admin/AdminStatCard";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getMissingItems, getPlanSeoScore, getReadinessScore } from "@/lib/adminMetrics";
+import { getDeploymentReadiness } from "@/lib/deploymentReadiness";
 import { mockBlogPosts } from "@/lib/mockBlogPosts";
 import { mockMessages } from "@/lib/mockMessages";
 import { readPlans } from "@/lib/planData";
@@ -39,7 +40,7 @@ function AttentionList({ title, plans, empty }: { title: string; plans: Plan[]; 
 }
 
 export default async function AdminDashboardPage() {
-  const plans = await readPlans();
+  const [plans, deployment] = await Promise.all([readPlans(), getDeploymentReadiness()]);
   const published = plans.filter((p) => p.status === "Published");
   const drafts = plans.filter((p) => p.status === "Draft");
   const free = plans.filter((p) => p.freePackEnabled);
@@ -61,8 +62,8 @@ export default async function AdminDashboardPage() {
     ["Blog Posts", String(mockBlogPosts.length), "SEO articles", BookOpen, "/admin/blog", "sky"],
     ["Media Files", "2", "Local uploads", Image, "/admin/media", "slate"],
     ["New Messages", String(mockMessages.filter((m) => m.status === "New").length), "Needs response", Mail, "/admin/messages", "red"],
-    ["Mock Views", totalViews.toLocaleString(), "+12% this week", TrendingUp, "/admin/analytics", "sky"],
-    ["Mock Downloads", totalDownloads.toLocaleString(), "+18% this week", Download, "/admin/analytics", "green"],
+    ["Recorded Views", totalViews.toLocaleString(), "Catalog total", TrendingUp, "/admin/analytics", "sky"],
+    ["Recorded Downloads", totalDownloads.toLocaleString(), "Catalog total", Download, "/admin/analytics", "green"],
     ["Premium Clicks", totalPremiumClicks.toLocaleString(), "+9% this week", MousePointerClick, "/admin/analytics", "amber"],
     ["CAD/Revit Clicks", totalCadClicks.toLocaleString(), "+7% this week", FileText, "/admin/analytics", "purple"]
   ] as const;
@@ -82,10 +83,42 @@ export default async function AdminDashboardPage() {
     { label: "Manage SEO", href: "/admin/seo", Icon: SearchCheck },
     { label: "View Public Site", href: "/", Icon: Globe2 }
   ];
+  const deploymentChecks: Array<{ label: string; ok: boolean; Icon: LucideIcon }> = [
+    { label: "Database", ok: deployment.databaseReachable || !deployment.databaseRequired, Icon: Database },
+    { label: "Cloud uploads", ok: deployment.uploadProvider === "cloudinary" || !deployment.cloudUploadsRequired, Icon: Cloud },
+    { label: "Admin security", ok: deployment.adminPasswordStrong && deployment.sessionSecretStrong, Icon: KeyRound },
+    { label: "Public URL", ok: deployment.siteUrlConfigured, Icon: Globe2 }
+  ];
 
   return (
     <div>
       <AdminPageHeader title="Dashboard" subtitle="A powerful CMS command center for publishing quality, SEO readiness, traffic signals and marketplace operations." actions={<Button href="/admin/plans/new">Add New Plan</Button>} />
+      <Card className={`mb-6 border p-5 ${deployment.ready ? "border-emerald-200 bg-emerald-50/80" : "border-amber-200 bg-amber-50/80"}`}>
+        <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              {deployment.ready ? <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-700" /> : <AlertTriangle className="h-5 w-5 shrink-0 text-amber-700" />}
+              <h2 className="safe-break text-xl font-black text-slate-950">{deployment.ready ? "Production configuration ready" : "Production configuration needs attention"}</h2>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-slate-700">
+              This check validates database access, durable uploads, admin secrets and the public production URL without exposing secret values.
+            </p>
+          </div>
+          <Button href="/api/health" variant="outline" target="_blank" rel="noreferrer" className="w-full lg:w-auto">Open health check</Button>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {deploymentChecks.map(({ label, ok, Icon }) => (
+            <div key={label} className="flex min-w-0 items-center gap-3 rounded-lg border border-white/80 bg-white/75 p-3">
+              <Icon className={`h-5 w-5 shrink-0 ${ok ? "text-emerald-600" : "text-amber-600"}`} />
+              <div className="min-w-0">
+                <p className="font-bold text-slate-950">{label}</p>
+                <p className="text-xs font-semibold text-slate-500">{ok ? "Ready" : "Configure before production"}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        {deployment.issues.length ? <ul className="mt-4 grid gap-2 text-sm font-semibold text-amber-900">{deployment.issues.map((issue) => <li key={issue} className="safe-break rounded-lg bg-white/70 px-3 py-2">{issue}</li>)}</ul> : null}
+      </Card>
       <AdminOpsStrip />
       <section className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
         {quickActions.map(({ label, href, Icon }) => (
@@ -113,7 +146,7 @@ export default async function AdminDashboardPage() {
 
       <section className="mt-8 grid gap-6 xl:grid-cols-[1fr_0.9fr]">
         <Card className="p-5">
-          <h2 className="text-xl font-black text-slate-950">Mock Traffic Overview</h2>
+          <h2 className="text-xl font-black text-slate-950">Traffic Overview</h2>
           <div className="mt-5 grid gap-4">
             {[
               ["Visitors", 100, "48,200"],

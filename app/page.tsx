@@ -78,7 +78,7 @@ export default async function HomePage() {
           </div>
         </section>
         <section className="section-shell py-12 sm:py-20">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"><div className="min-w-0"><p className="section-kicker">Popular right now</p><h2 className="section-title">Featured house plans</h2><p className="mt-2 text-slate-600">A hand-picked mix of practical family homes, compact layouts and buildable modern designs.</p></div><Button href="/plans" variant="outline" className="w-full sm:w-auto">View all plans</Button></div>
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"><div className="min-w-0"><p className="section-kicker">Popular right now</p><h2 className="section-title">Featured house plans</h2><p className="mt-2 text-slate-600">A hand-picked mix of practical family homes, compact layouts and modern design concepts for professional local review.</p></div><Button href="/plans" variant="outline" className="w-full sm:w-auto">View all plans</Button></div>
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{homepagePlans.slice(0, 6).map((plan) => <PlanCard key={plan.id} plan={plan} />)}</div>
         </section>
         <section className="border-y border-white/80 bg-white/55 backdrop-blur">

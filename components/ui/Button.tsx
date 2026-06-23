@@ -19,7 +19,7 @@ const variants = {
 };
 
 export function Button({ className, variant = "primary", href, children, ...props }: ButtonProps) {
-  const classes = cn("focus-ring inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-center text-sm font-bold transition duration-200 active:translate-y-px", variants[variant], className);
+  const classes = cn("focus-ring inline-flex min-h-11 max-w-full min-w-0 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-center text-sm font-bold leading-snug transition duration-200 active:translate-y-px [&>svg]:shrink-0", variants[variant], className);
 
   if (href) {
     const { disabled: _disabled, type: _type, target, rel, download, ...linkProps } = props;

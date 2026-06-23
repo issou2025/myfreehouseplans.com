@@ -116,24 +116,24 @@ export function Header() {
       </div>
       {open ? (
         <div className="section-shell pb-4 lg:hidden">
-          <div className="grid gap-1 rounded-lg border border-slate-200 bg-white p-3 shadow-xl">
+          <div className="grid max-h-[calc(100vh-5.25rem)] gap-1 overflow-y-auto rounded-lg border border-slate-200 bg-white p-3 shadow-xl">
             <div className="mb-2 flex items-center gap-2 rounded-md bg-slate-950 p-3 text-xs font-bold text-slate-200"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Start anywhere. We will guide the next step.</div>
-            {mobileLinks.map(([label, href, Icon]) => <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 ${isActive(href) ? "bg-sky-50 text-sky-700" : ""}`} onClick={() => setOpen(false)}><Icon className="h-4 w-4" />{label}</Link>)}
+            {mobileLinks.map(([label, href, Icon]) => <Link key={href} href={href} className={`flex min-w-0 items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 ${isActive(href) ? "bg-sky-50 text-sky-700" : ""}`} onClick={() => setOpen(false)}><Icon className="h-4 w-4 shrink-0" /><span className="safe-break">{label}</span></Link>)}
             <div className="mt-2 border-t border-slate-100 pt-2">
               <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-500">Project path</p>
               {journeyLinks.map(([label, href, Icon]) => (
-                <Link key={href} href={href} className="flex items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700" onClick={() => setOpen(false)}>
-                  <Icon className="h-4 w-4" />
-                  {label}
+                <Link key={href} href={href} className="flex min-w-0 items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700" onClick={() => setOpen(false)}>
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <span className="safe-break">{label}</span>
                 </Link>
               ))}
             </div>
             <div className="mt-2 border-t border-slate-100 pt-2">
               <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-500">All site pages</p>
               {pageLinks.map(([label, href, , Icon]) => (
-                <Link key={href} href={href} className={`flex items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700 ${isActive(href) ? "bg-sky-50 text-sky-700" : ""}`} onClick={() => setOpen(false)}>
-                  <Icon className="h-4 w-4" />
-                  {label}
+                <Link key={href} href={href} className={`flex min-w-0 items-center gap-3 rounded-xl px-4 py-3 font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700 ${isActive(href) ? "bg-sky-50 text-sky-700" : ""}`} onClick={() => setOpen(false)}>
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <span className="safe-break">{label}</span>
                 </Link>
               ))}
             </div>

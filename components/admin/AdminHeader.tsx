@@ -32,12 +32,12 @@ export function AdminHeader() {
 
   const handleSearch = () => {
     const value = query.trim();
-    setFeedback(value ? `Search ready for "${value}" in MVP mode.` : "Type a keyword to search admin content.");
+    setFeedback(value ? `Search indexing is not connected yet for "${value}".` : "Type a keyword to search admin content.");
     window.setTimeout(() => setFeedback(""), 2400);
   };
 
   return (
-    <header className="sticky top-0 z-40 max-w-full overflow-hidden border-b border-white/60 bg-white/80 px-4 py-4 shadow-sm shadow-slate-950/5 backdrop-blur-xl sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 max-w-full overflow-visible border-b border-white/60 bg-white/80 px-3 py-3 shadow-sm shadow-slate-950/5 backdrop-blur-xl sm:px-6 sm:py-4 lg:px-8">
       <div className="flex min-w-0 flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
         <div className="flex min-w-0 items-center gap-3">
           <button
@@ -61,7 +61,7 @@ export function AdminHeader() {
             <p className="mt-0.5 hidden text-sm font-semibold text-slate-500 sm:block">{currentPage.helper}</p>
           </div>
         </div>
-        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_auto] xl:flex xl:flex-wrap xl:items-center">
+        <div className="grid min-w-0 grid-cols-1 gap-2 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:gap-3 xl:flex xl:flex-wrap xl:items-center">
           <form
             className="relative min-w-0"
             onSubmit={(event) => {
@@ -73,12 +73,12 @@ export function AdminHeader() {
             <Input className="w-full pl-9 xl:w-64" placeholder="Search admin..." value={query} onChange={(event) => setQuery(event.target.value)} />
             {feedback ? <span className="absolute left-0 top-full z-50 mt-1 w-full rounded-xl bg-slate-950 px-3 py-2 text-xs font-semibold text-white shadow-xl">{feedback}</span> : null}
           </form>
-          <Button href="/admin/plans/new" className="w-full sm:w-auto"><Plus className="h-4 w-4" /> Add New Plan</Button>
-          <AdminActionButton variant="outline" className="px-3" message="No new admin notifications in MVP mode."><Bell className="h-5 w-5" /></AdminActionButton>
+          <Button href="/admin/plans/new" className="w-full px-3 sm:w-auto sm:px-5"><Plus className="h-4 w-4" /> Add New Plan</Button>
+          <AdminActionButton variant="outline" className="w-full px-3 sm:w-auto" message="No new admin notifications."><Bell className="h-5 w-5" /><span className="sm:hidden">Notifications</span></AdminActionButton>
           <div className="hidden items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm md:flex"><UserCircle className="h-4 w-4" /> Admin</div>
         </div>
       </div>
-      <nav className="mt-3 grid grid-cols-4 gap-2 lg:hidden">
+      <nav className="mt-3 grid grid-cols-2 gap-2 min-[420px]:grid-cols-4 lg:hidden">
         {mobileLinks.map(({ label, href, icon: Icon }) => (
           <Link
             key={href}

@@ -8,7 +8,7 @@ const stages: Array<{ id: JourneyStage; label: string; copy: string; href: strin
   { id: "discover", label: "Find a plan", copy: "Browse homes that fit your needs.", href: "/plans", icon: SearchCheck },
   { id: "check", label: "Check your land", copy: "Make sure the plan fits your plot.", href: "/tools#plot-checker", icon: MapPinned },
   { id: "choose", label: "Choose your files", copy: "Pick free, PDF or editable files.", href: "/premium-house-plans", icon: FileStack },
-  { id: "prepare", label: "Get ready to build", copy: "Review the plan with a local professional.", href: "/before-you-build", icon: ClipboardCheck }
+  { id: "prepare", label: "Prepare the local review", copy: "Have a qualified local professional adapt and verify the project.", href: "/before-you-build", icon: ClipboardCheck }
 ];
 
 export function ProjectJourney({ current = "discover" }: { current?: JourneyStage }) {

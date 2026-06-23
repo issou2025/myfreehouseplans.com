@@ -1,14 +1,14 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight, Home } from "lucide-react";
 import type { Category } from "@/types/category";
 import { Card } from "@/components/ui/Card";
+import { SafeImage } from "@/components/public/SafeImage";
 
 export function CategoryCard({ category }: { category: Category }) {
   return (
     <Link href={`/plans?category=${category.slug}`} className="block h-full">
       <Card className="group relative h-full min-h-64 overflow-hidden border-0 bg-slate-950 p-0 transition hover:shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
-        {category.imageUrl ? <Image src={category.imageUrl} alt="" fill sizes="(max-width: 519px) 100vw, (max-width: 1023px) 50vw, 25vw" className="object-cover opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-75" /> : null}
+        {category.imageUrl ? <SafeImage src={category.imageUrl} alt="" fill sizes="(max-width: 519px) 100vw, (max-width: 1023px) 50vw, 25vw" className="object-cover opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-75" /> : null}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/5" />
         <div className="relative flex h-full min-h-64 flex-col justify-between p-5">
           <div className="flex items-start justify-between gap-3">

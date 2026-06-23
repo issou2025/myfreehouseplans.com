@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: `${siteName} | House Plans, PDF, CAD and BIM`,
     template: `%s | ${siteName}`
   },
-  description: "Discover buildable house plans with plot-fit checks, clear technical details and professional PDF, DWG, Revit and IFC packages.",
+  description: "Explore house plan concepts with plot-fit checks, clear technical details and professional PDF, DWG, Revit and IFC packages for local review and adaptation.",
   keywords: ["house plans", "free house plans", "plot fit checker", "PDF house plans", "DWG house plans", "Revit house plans", "BIM house plans"],
   alternates: { canonical: "/" },
   applicationName: siteName,

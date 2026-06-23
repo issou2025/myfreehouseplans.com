@@ -9,3 +9,5 @@ node_modules
 tsconfig.tsbuildinfo
 data/messages.json
 data/deleted-plans.json
+data/categories.json
+data/deleted-categories.json

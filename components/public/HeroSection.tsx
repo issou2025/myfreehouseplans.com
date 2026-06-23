@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { ArrowRight, CheckCircle2, Download, FileText, Gauge, MapPinned, Ruler } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { SearchBar } from "@/components/public/SearchBar";
+import { SafeImage } from "@/components/public/SafeImage";
 
 const highlights = [
   { label: "Plan area", value: "168 m2 / 1,808 sq ft", icon: Ruler },
@@ -13,7 +13,7 @@ const highlights = [
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white lg:min-h-[760px]">
-      <Image
+      <SafeImage
         src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=88"
         alt="Modern family house exterior"
         fill
@@ -31,10 +31,10 @@ export function HeroSection() {
               House plans reviewed for real sites
             </Badge>
             <h1 className="text-balance mt-5 text-4xl font-extrabold leading-[1.04] min-[380px]:text-5xl sm:mt-7 sm:text-7xl lg:text-[5.2rem]">
-              Choose a house plan you can actually build.
+              Choose a house plan concept with clearer project information.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-200 min-[380px]:text-base min-[380px]:leading-7 sm:mt-6 sm:text-xl sm:leading-8">
-              Browse practical designs, check the plot fit, and download the file format your project needs: preview PDF, full drawings, CAD, Revit or IFC.
+              Browse practical designs, compare plot dimensions, and choose preview PDF, drawing, CAD, Revit or IFC files for review by your local project professional.
             </p>
             <div className="mt-6 max-w-2xl sm:mt-8">
               <SearchBar />
@@ -53,7 +53,7 @@ export function HeroSection() {
           <div className="hidden w-full max-w-md justify-self-end lg:block">
             <div className="relative rounded-lg border border-white/15 bg-white/[0.08] p-3 shadow-[0_24px_70px_rgba(0,0,0,0.36)] backdrop-blur-xl">
               <div className="relative aspect-[4/3] overflow-hidden rounded-md">
-                <Image src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1000&q=85" alt="Interior of the featured modern house" fill sizes="384px" className="object-cover" />
+                <SafeImage src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85" alt="Featured modern house concept" fill sizes="384px" className="object-cover" />
                 <span className="absolute left-3 top-3 rounded-md bg-white/90 px-3 py-1 text-xs font-bold text-slate-950">Featured plan</span>
                 <span className="absolute bottom-3 right-3 flex items-center gap-2 rounded-md bg-slate-950/75 px-3 py-1.5 text-xs font-bold text-white backdrop-blur"><Gauge className="h-3.5 w-3.5 text-emerald-300" /> Fit score 91%</span>
               </div>

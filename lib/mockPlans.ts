@@ -5,7 +5,7 @@ import { getPlanSeoScore, getReadinessScore } from "@/lib/adminMetrics";
 const planImage = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
 
 const defaultFaq = [
-  { question: "Can I use this plan directly for construction?", answer: "No. A local architect, engineer or qualified professional must adapt it to your site, codes and soil conditions." },
+  { question: "What professional review is required?", answer: "A qualified local architect, engineer or other authorized professional must adapt the concept to the site, regulations, soil and project requirements before construction." },
   { question: "What is included in the free PDF?", answer: "The free preview includes a watermarked plan overview and key dimensions for early review." },
   { question: "What is included in the premium PDF pack?", answer: "Premium packs include complete PDF drawings such as plans, elevations, sections and construction notes when available." },
   { question: "What is the difference between PDF, DWG, Revit and IFC?", answer: "PDF is for viewing, DWG is editable CAD, Revit is a BIM model and IFC is an exchange format." },

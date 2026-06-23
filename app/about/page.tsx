@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ArrowRight, Building2, CheckCircle2, FileText, Layers3, MapPinned, ShieldCheck } from "lucide-react";
 import { CTASection } from "@/components/public/CTASection";
 import { Footer } from "@/components/public/Footer";
@@ -7,6 +6,7 @@ import { Header } from "@/components/public/Header";
 import { ProjectJourney } from "@/components/public/ProjectJourney";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { SafeImage } from "@/components/public/SafeImage";
 
 export const metadata: Metadata = {
   title: "About",
@@ -27,7 +27,7 @@ export default function AboutPage() {
       <Header />
       <main>
         <section className="relative overflow-hidden bg-slate-950 text-white">
-          <Image src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=2200&q=85" alt="" fill sizes="100vw" className="object-cover opacity-35" />
+          <SafeImage src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85" alt="" fill sizes="100vw" className="object-cover opacity-35" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/45" />
           <div className="absolute inset-0 subtle-grid opacity-20" />
           <div className="section-shell relative grid gap-8 py-12 lg:grid-cols-[1fr_0.75fr] lg:items-end lg:py-20">

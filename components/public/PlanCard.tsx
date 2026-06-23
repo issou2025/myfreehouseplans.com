@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { Bath, BedDouble, Eye, FileText, Gauge, GitCompareArrows, MapPinned, Ruler } from "lucide-react";
 import type { Plan } from "@/types/plan";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { SafeImage } from "@/components/public/SafeImage";
 import { getPlanPreviewImages } from "@/lib/planImages";
 import { formatAreaDual, formatPlotDual } from "@/lib/unitFormat";
 import { formatCurrency } from "@/lib/utils";
@@ -36,7 +36,7 @@ export function PlanCard({
     <>
     <Card className="group overflow-hidden border-slate-200/80 bg-white hover:border-sky-200 hover:shadow-[0_16px_48px_rgba(15,23,42,0.1)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-        <Image src={plan.mainImage} alt={plan.title} fill sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+        <SafeImage src={plan.mainImage} alt={plan.title} fill sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/48 via-transparent to-transparent opacity-80" />
         <div className="absolute left-2 right-2 top-2 flex max-h-16 flex-wrap gap-1.5 overflow-hidden sm:left-3 sm:right-auto sm:top-3 sm:max-h-none sm:gap-2">
           {plan.badges.slice(0, 3).map((badge) => <Badge key={badge} tone={badge.includes("Free") ? "green" : badge.includes("Revit") || badge.includes("DWG") || badge.includes("IFC") ? "purple" : "amber"}>{badge}</Badge>)}

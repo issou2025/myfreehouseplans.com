@@ -24,7 +24,7 @@ POSTGRES_SSL=true
 REQUIRE_DATABASE=true
 ```
 
-The app automatically creates the required `app_plans` and `app_messages` tables when first used. You may also run:
+The app automatically creates the required plan, category, deletion-tracking and message tables when first used. You may also run:
 
 ```bash
 npm run db:migrate
@@ -68,8 +68,8 @@ Open:
 
 Confirm:
 
-- `databaseReachable` is `true`
-- `uploadProvider` is `cloudinary`
+- `checks.databaseReachable` is `true`
+- `checks.uploadProvider` is `cloudinary`
 - `deploymentReady` is `true`
 
 Then log in at `/admin/login`, create a draft plan, upload an image, publish it, and verify its public page.
